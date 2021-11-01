@@ -4,8 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button} from "bootstrap-react";
 import {Navbar,Form, Container, Row, Col,NavDropdown, Nav} from 'react-bootstrap';
 
+/**
+ * 
+ */
 class Ligas extends React.Component {
 
+  /**
+   * 
+   * @param {*} props 
+   */
     constructor(props){
       super(props);
 
@@ -19,6 +26,10 @@ class Ligas extends React.Component {
       };
   }
     
+  /**
+   * 
+   * @param {*} playerId 
+   */
       handleDelete = (playerId) =>{
         // borrar por ID, no por NOMBRE
         //const localPlayers = this.state.ligas.filter(p => p.idl !== playerId);
@@ -26,18 +37,25 @@ class Ligas extends React.Component {
         this.setState({ligas : localPlayers});
       }
     
+      /**
+       * 
+       */
       handleAgregar = () =>{
         var localcounters  = [...this.state.ligas];    //clonamos el objeto
         localcounters = localcounters.concat(
           this.state.formAdd
         )
         
-        console.log(localcounters);
+        //console.log(localcounters);
         this.setState({ligas:localcounters});    
       }
     
+      /**
+       * 
+       * @param {*} e 
+       */
       handleChange = e =>{
-        console.log(e);    
+        //console.log(e);    
         //en formAdd se copia el mismo valor previo, pero se actualiza unicamente 
         ///el valor del campo modificado por el evento
         this.setState({
@@ -48,8 +66,12 @@ class Ligas extends React.Component {
         });
       }
     
+      /**
+       * 
+       * @param {*} j 
+       */
       handleJugadorChange = j =>{
-        console.log(j);    
+        //console.log(j);    
         //copiamos el estado modificado por el evento changes
         this.setState({
           formAdd:{...j.state.formAdd}
@@ -57,6 +79,10 @@ class Ligas extends React.Component {
     
       }
     
+      /**
+       * 
+       * @param {*} player 
+       */
       handleUpdate = (player) =>{
         // //agregamos si coincide con el ID 
         // var localcounters  = [...this.state.ligas];    //clonamos el objeto
@@ -83,6 +109,9 @@ class Ligas extends React.Component {
         this.setState({ligas:lista});
       }
     
+      /**
+       * 
+       */
       handleBuscar = () =>{
         //deberia FILTRATR 
         if((this.state.formAdd["Nombre De La Liga"] =="")){//if((this.state.formAdd.nombre =="")){
@@ -96,6 +125,9 @@ class Ligas extends React.Component {
         }
       }
 
+      /**
+       * 
+       */
       componentDidMount(){
         const apiurl="https://footbal-api.herokuapp.com/leagues";
 
@@ -115,15 +147,13 @@ class Ligas extends React.Component {
             {/* FORMULARIO PARA AGREGAR UN JUGADOR */}
             <Form>  
               <Row>Nueva Liga</Row>
-            <Row>
-              <Col>    
-                <Form.Control type="text" placeholder="" name="Identificador" value={this.state.ligas.length+1}/>
-              </Col>
+            <Row>              
+                <Form.Control type="hidden" placeholder="" name="Identificador" value={this.state.ligas.length+1}/>              
               <Col>            
                 <Form.Control type="text" placeholder="Ingrese Nombre" name="Nombre De La Liga"  onChange={this.handleChange} />
               </Col>
               <Col>            
-                <Form.Control type="text" placeholder="Ingrese logo" name="Logo de la Liga"   onChange={this.handleChange}/>
+                <Form.Control type="text" placeholder="Ingrese URL logo" name="Logo de la Liga"   onChange={this.handleChange}/>
               </Col>
               <Button onClick={this.handleAgregar} variant="primary" type="button" className="col-1 btn success">
                 NUEVO
@@ -134,10 +164,8 @@ class Ligas extends React.Component {
             {/* FORMULARIO PARA BUSCAR UN JUGADOR */}
             <Form>  
               <Row>BUSCAR Liga</Row>
-            <Row>
-              <Col>    
-                <Form.Control type="text" placeholder="" name="Identificador" value={this.state.ligas.length+1}/>
-              </Col>
+            <Row>                
+                <Form.Control type="hidden" placeholder="" name="Identificador" value={this.state.ligas.length+1}/>              
               <Col>            
                 <Form.Control type="text" placeholder="Ingrese Nombre" name="Nombre De La Liga"  onChange={this.handleChange} />
               </Col>
@@ -151,7 +179,7 @@ class Ligas extends React.Component {
             <div className="row">                
               <div className="col-1">ID</div>
               <div className="col-3">Nombre</div>
-              <div className="col-3">logo</div>
+              <div className="col-1">logo</div>
               {/* <div className="col-1">Editar</div> */}
               <div className="col-1">Acciones</div>
             </div>

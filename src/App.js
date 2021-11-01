@@ -9,6 +9,7 @@ import Ligas from './components/ligas';
 class App extends React.Component {
 
   render() {
+    //De acuerdo a la URL donde estemos, mostramos el contenido correspondiente
     if(window.location.href.includes("Ligas")){
       return(
         <div className="App">

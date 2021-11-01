@@ -4,8 +4,17 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button} from "bootstrap-react";
 import {Navbar,Form, Container, Row, Col,NavDropdown, Nav} from 'react-bootstrap';
 
+/**
+ *Clase que representa un ADMINISTRADOR DE EQUIPO
+ *Muestra FORM de busqueda, FORM de nuevo y listado
+ */
 class Equipos extends React.Component {
 
+    /** 
+   * Constructor de clase para inicializar  propiedades
+   * @equipos se utiliza para almacenar los datos de la API
+   * @formAdd se utiliza para enviar informacion al hacer un UPDATE
+   */
   constructor(props){
     super(props);
 
@@ -18,91 +27,111 @@ class Equipos extends React.Component {
         "Liga":this.props["Liga"]
       }
     };
-}
-    
-      handleDelete = (playerId) =>{
-        // borrar por ID, no por NOMBRE
-        const localPlayers = this.state.equipos.filter(p => p["id"] !== playerId);
-        this.setState({equipos : localPlayers});
-      }
-    
-      handleAgregar = () =>{
-        var localcounters  = [...this.state.equipos];    //clonamos el objeto
-        localcounters = localcounters.concat(
-          this.state.formAdd
-        )
-        
-        console.log(localcounters);
-        this.setState({equipos:localcounters});    
-      }
-    
-      handleChange = e =>{
-        console.log(e);    
-        //en formAdd se copia el mismo valor previo, pero se actualiza unicamente 
-        ///el valor del campo modificado por el evento
-        this.setState({
-          formAdd:{
-            ...this.state.formAdd,
-            [e.target.name]: e.target.value
-          }
-        });
-      }
-    
-      handleJugadorChange = j =>{
-        console.log(j);    
-        //copiamos el estado modificado por el evento changes
-        this.setState({
-          formAdd:{...j.state.formAdd}
-        });    
-    
-      }
-    
-      handleUpdate = (player) =>{
-        // //agregamos si coincide con el ID 
-        // var localcounters  = [...this.state.equipos];    //clonamos el objeto
-        // //buscamos el jusgador con ID=playerId y lo modificamos con los valores de formAdd
-        // const localPlayers = this.state.equipos.filter(p => (p.ide == playerId));
-    
-        // //actualizamos el listado gral de equipos
-        // this.setState({equipos:localcounters});    
-    
-        var contador =0;
-        var lista = this.state.equipos;
-        lista.map((registro)=>{
-          if(player["id"]==registro.ide){
-              lista[contador]["Nombre del equipo"] = this.formAdd["Nombre del equipo"];
-              lista[contador]["Logo del Equipo"] = this.formAdd["Logo del Equipo"];
-              lista[contador]["Liga"] = this.formAdd["Liga"];
-          }
-          contador++;
-        }
-        );
-        this.setState({equipos:lista});
-      }
-    
-      handleBuscar = () =>{
-        //deberia FILTRATR 
-        if((this.state.formAdd["Nombre del equipo"] =="") & (this.state.formAdd["Liga"] =="")){
-          //mostramos todos los equipos
-                       
-        }else{
-          const localPlayers = this.state.equipos.filter(p => (p["Nombre del equipo"] == this.state.formAdd["Nombre del equipo"]) ||
-          (p["Liga"] == this.state.formAdd["Liga"]));
-          if(localPlayers.length > 0){
-            this.setState({equipos : localPlayers});
-          }    
-        }
-      }
+  }
 
-      componentDidMount(){
-        const apiurl="https://footbal-api.herokuapp.com/teams";
-        fetch(apiurl)
-        .then((res) => res.json())
-        .then((json) => {
-            this.setState({
-                equipos: json                    
-            });
-        })         
+  /**
+   * Evento que borra el Equipo con ID @playerId del listado de Equipos
+   * @param {String} playerId 
+   */
+    handleDelete = (playerId) =>{
+      // borrar por ID, no por NOMBRE
+      const localPlayers = this.state.equipos.filter(p => p["id"] !== playerId);
+      this.setState({equipos : localPlayers});
+    }
+    
+    /**
+     * Evento que agrega el Equipo cuya información está almacenada en @formAdd al listado de Equipos
+     */
+    handleAgregar = () =>{
+      var localcounters  = [...this.state.equipos];    //clonamos el objeto
+      localcounters = localcounters.concat(
+        this.state.formAdd
+      )
+      
+      //console.log(localcounters);
+      this.setState({equipos:localcounters});    
+    }
+    
+    /**
+     * 
+     * @param {Event} e
+     */
+    handleChange = e =>{      
+      //en formAdd se copia el mismo valor previo, pero se actualiza unicamente 
+      ///el valor del campo modificado por el evento
+      this.setState({
+        formAdd:{
+          ...this.state.formAdd,
+          [e.target.name]: e.target.value
+        }
+      });
+    }
+    
+    /**
+     * 
+     * @param {*} j 
+     */
+    handleJugadorChange = j =>{
+      //console.log(j);    
+      //copiamos el estado modificado por el evento changes
+      this.setState({
+        formAdd:{...j.state.formAdd}
+      });
+    }
+    
+    /**
+     * 
+     * @param {*} player 
+     */
+    handleUpdate = (player) =>{
+      // //agregamos si coincide con el ID 
+      // var localcounters  = [...this.state.equipos];    //clonamos el objeto
+      // //buscamos el jusgador con ID=playerId y lo modificamos con los valores de formAdd
+      // const localPlayers = this.state.equipos.filter(p => (p.ide == playerId));   
+  
+      var contador =0;
+      var lista = this.state.equipos;
+      lista.map((registro)=>{
+        if(player["id"]==registro.ide){
+            lista[contador]["Nombre del equipo"] = this.formAdd["Nombre del equipo"];
+            lista[contador]["Logo del Equipo"] = this.formAdd["Logo del Equipo"];
+            lista[contador]["Liga"] = this.formAdd["Liga"];
+        }
+        contador++;
+      }
+      );
+      this.setState({equipos:lista});
+    }
+    
+    /**
+     * 
+     */
+    handleBuscar = () =>{
+      //deberia FILTRATR 
+      if((this.state.formAdd["Nombre del equipo"] =="") & (this.state.formAdd["Liga"] =="")){
+        //mostramos todos los equipos
+                      
+      }else{
+        const localPlayers = this.state.equipos.filter(p => (p["Nombre del equipo"] == this.state.formAdd["Nombre del equipo"]) ||
+        (p["Liga"] == this.state.formAdd["Liga"]));
+        if(localPlayers.length > 0){
+          this.setState({equipos : localPlayers});
+        }    
+      }
+    }
+
+    /**
+     * Evento que realiza el GET Api e inicializa el listado de Equipos
+     */
+    componentDidMount(){
+      const apiurl="https://footbal-api.herokuapp.com/teams";
+      fetch(apiurl)
+      .then((res) => res.json())
+      .then((json) => {
+          this.setState({
+              equipos: json                    
+          });
+      })         
     }
 
     render() { 
@@ -113,14 +142,12 @@ class Equipos extends React.Component {
             <Form>  
               <Row>Nuevo Equipo</Row>
             <Row>
-              <Col>    
-                <Form.Control type="text" placeholder="" name="id" value={this.state.equipos.length+1}/>
-              </Col>
+                <Form.Control type="hidden" placeholder="" name="id" value={this.state.equipos.length+1}/>
               <Col>            
                 <Form.Control type="text" placeholder="Ingrese Nombre" name="Nombre del equipo"  onChange={this.handleChange} />
               </Col>
               <Col>            
-                <Form.Control type="text" placeholder="Ingrese logo" name="Logo del Equipo"    onChange={this.handleChange}/>
+                <Form.Control type="text" placeholder="Ingrese URL logo" name="Logo del Equipo"    onChange={this.handleChange}/>
               </Col>
               <Col>
                 <Form.Control type="text" placeholder="Ingrese Liga" name="Liga"  onChange={this.handleChange}/>
@@ -134,10 +161,8 @@ class Equipos extends React.Component {
             {/* FORMULARIO PARA BUSCAR UN JUGADOR */}
             <Form>  
               <Row>BUSCAR Equipo</Row>
-            <Row>
-              <Col>    
-                <Form.Control type="text" placeholder="" name="id" value={this.state.equipos.length+1}/>
-              </Col>
+            <Row>              
+                <Form.Control type="hidden" placeholder="" name="id" value={this.state.equipos.length+1}/>              
               <Col>            
                 <Form.Control type="text" placeholder="Ingrese Nombre" name="Nombre del equipo"  onChange={this.handleChange} />
               </Col>
@@ -154,7 +179,7 @@ class Equipos extends React.Component {
             <div className="row">                
               <div className="col-1">ID</div>
               <div className="col-3">Nombre</div>
-              <div className="col-3">logo</div>
+              <div className="col-1">logo</div>
               <div className="col-3">Liga</div>
               {/* <div className="col-1">Editar</div> */}
               <div className="col-1">Acciones</div>

@@ -4,8 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button} from "bootstrap-react";
 import {Navbar,Form, Container, Row, Col,NavDropdown, Nav} from 'react-bootstrap';
 
+/**
+ * 
+ */
 class Jugadores extends React.Component {
 
+  /**
+   * 
+   * @param {*} props 
+   */
     constructor(props){
       super(props);
   
@@ -20,24 +27,35 @@ class Jugadores extends React.Component {
       };
   }
     
+  /**
+   * 
+   * @param {*} playerId 
+   */
       handleDelete = (playerId) =>{
         // borrar por ID, no por NOMBRE
         const localPlayers = this.state.jugadores.filter(p => p["id"] !== playerId);
         this.setState({jugadores : localPlayers});
       }
     
+      /**
+       * 
+       */
       handleAgregar = () =>{
         var localcounters  = [...this.state.jugadores];    //clonamos el objeto
         localcounters = localcounters.concat(
           this.state.formAdd
         )
         
-        console.log(localcounters);
+        //console.log(localcounters);
         this.setState({jugadores:localcounters});    
       }
     
+      /**
+       * 
+       * @param {*} e 
+       */
       handleChange = e =>{
-        console.log(e);    
+        //console.log(e);    
         //en formAdd se copia el mismo valor previo, pero se actualiza unicamente 
         ///el valor del campo modificado por el evento
         this.setState({
@@ -48,8 +66,12 @@ class Jugadores extends React.Component {
         });
       }
     
+      /**
+       * 
+       * @param {*} j 
+       */
       handleJugadorChange = j =>{
-        console.log(j);    
+        //console.log(j);    
         //copiamos el estado modificado por el evento changes
         this.setState({
           formAdd:{...j.state.formAdd}
@@ -57,6 +79,10 @@ class Jugadores extends React.Component {
     
       }
     
+      /**
+       * 
+       * @param {*} player 
+       */
       handleUpdate = (player) =>{
         // //agregamos si coincide con el ID 
         // var localcounters  = [...this.state.jugadores];    //clonamos el objeto
@@ -80,6 +106,9 @@ class Jugadores extends React.Component {
         this.setState({jugadores:lista});
       }
     
+      /**
+       * 
+       */
       handleBuscar = () =>{
         //deberia FILTRATR 
         if((this.state.formAdd["Nombre del Jugador"] =="") & (this.state.formAdd["teamId"] =="")){
@@ -94,6 +123,9 @@ class Jugadores extends React.Component {
         }
       }
 
+      /**
+       * 
+       */
       componentDidMount(){
         const apiurl="https://footbal-api.herokuapp.com/players";
         fetch(apiurl)
@@ -113,14 +145,12 @@ class Jugadores extends React.Component {
             <Form>  
               <Row>Nuevo Jugador</Row>
             <Row>
-              <Col>    
-                <Form.Control type="text" placeholder="" name="id" value={this.state.jugadores.length+1}/>
-              </Col>
+                <Form.Control type="hidden" placeholder="" name="id" value={this.state.jugadores.length+1}/>
               <Col>            
                 <Form.Control type="text" placeholder="Ingrese Nombre" name="Nombre del Jugador"  onChange={this.handleChange} />
               </Col>
               <Col>            
-                <Form.Control type="text" placeholder="Ingrese Foto" name="Avatar"    onChange={this.handleChange}/>
+                <Form.Control type="text" placeholder="Ingrese URL Foto" name="Avatar"    onChange={this.handleChange}/>
               </Col>
               <Col>
                 <Form.Control type="text" placeholder="Ingrese Equipo" name="teamId"  onChange={this.handleChange}/>
@@ -135,9 +165,7 @@ class Jugadores extends React.Component {
             <Form>  
               <Row>BUSCAR Jugador</Row>
             <Row>
-              <Col>    
-                <Form.Control type="text" placeholder="" name="id" value={this.state.jugadores.length+1}/>
-              </Col>
+                <Form.Control type="hidden" placeholder="" name="id" value={this.state.jugadores.length+1}/>
               <Col>            
                 <Form.Control type="text" placeholder="Ingrese Nombre" name="Nombre del Jugador"  onChange={this.handleChange} />
               </Col>
@@ -154,7 +182,7 @@ class Jugadores extends React.Component {
             <div className="row">                
               <div className="col-1">ID</div>
               <div className="col-3">Nombre</div>
-              <div className="col-3">Foto</div>
+              <div className="col-1">Foto</div>
               <div className="col-3">Equipo</div>
               {/* <div className="col-1">Editar</div> */}
               <div className="col-1">Acciones</div>

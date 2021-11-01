@@ -2,6 +2,9 @@ import React,{Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Navbar,Form, Container, Row, Col,NavDropdown, Nav} from 'react-bootstrap';
 
+/**
+ * Clase para graficar la Barra de Navegacion
+ */
 class FutAppNavBar extends React.Component {
     state ={
             url:'Ligas'
