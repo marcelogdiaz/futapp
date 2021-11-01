@@ -19,6 +19,7 @@ class Jugadores extends React.Component {
   
       this.state ={
         jugadores:[],
+        equipos:[],
         formAdd: {
           "Nombre del Jugador":this.props["Nombre del Jugador"],
           "id":this.props["id"],
@@ -116,7 +117,7 @@ class Jugadores extends React.Component {
           //mostramos todos los jugadores
                        
         }else{
-          const localPlayers = this.state.jugadores.filter(p => (p["Nombre del Jugador"] == this.state.formAdd["Nombre del Jugador"]) ||
+          const localPlayers = this.state.jugadores.filter(p => (p["Nombre del Jugador"].includes(this.state.formAdd["Nombre del Jugador"])) ||
           (p["teamId"] == this.state.formAdd["teamId"]));
           if(localPlayers.length > 0){
             this.setState({jugadores : localPlayers});
@@ -136,6 +137,15 @@ class Jugadores extends React.Component {
                 jugadores: json                    
             });
         })          
+
+        const apiurlequipos="https://footbal-api.herokuapp.com/teams";
+        fetch(apiurlequipos)
+        .then((res) => res.json())
+        .then((json) => {
+            this.setState({
+                equipos: json                    
+            });
+        })        
     }
 
     render() { 
@@ -153,13 +163,13 @@ class Jugadores extends React.Component {
                 <Form.Control type="text" placeholder="Ingrese URL Foto" name="Avatar"    onChange={this.handleChange}/>
               </Col>
               <Col>
-                <Form.Control type="text" placeholder="Ingrese Equipo" name="teamId"  onChange={this.handleChange}/>
+                {/* <Form.Control type="text" placeholder="Ingrese Equipo" name="teamId"  onChange={this.handleChange}/> */}
 
-                {/* <select name="cars" id="cars">
-                {this.state.jugadores.map(jugador => 
-                    <option value="volvo">Volvo</option>
+                <select name="teamId" id="teamId" onChange={this.handleChange}>
+                {this.state.equipos.map(eq => 
+                    <option value={eq["id"]}>{eq["Nombre del equipo"]}</option>
                     )}
-              </select> */}
+              </select>
               </Col>
               <Button onClick={this.handleAgregar} variant="warning" type="button" className="col-1">
                 NUEVO
@@ -175,7 +185,12 @@ class Jugadores extends React.Component {
                 <Form.Control type="text" placeholder="Ingrese Nombre" name="Nombre del Jugador"  onChange={this.handleChange} />
               </Col>
               <Col>
-                <Form.Control type="text" placeholder="Ingrese Equipo" name="teamId"  onChange={this.handleChange}/>
+                {/* <Form.Control type="text" placeholder="Ingrese Equipo" name="teamId"  onChange={this.handleChange}/> */}
+                <select name="teamId" id="teamId" onChange={this.handleChange}>
+                {this.state.equipos.map(eq => 
+                    <option value={eq["id"]}>{eq["Nombre del equipo"]}</option>
+                    )}
+              </select>                
               </Col>
               <Button onClick={this.handleBuscar} variant="success" type="button" className="col-1">
                 BUSCAR
@@ -186,7 +201,7 @@ class Jugadores extends React.Component {
             <table class="table table-striped custab">
             <thead>
             <tr >                
-              <td >ID</td>
+              {/* <td >ID</td> */}
               <td >Nombre</td>
               <td >Foto</td>
               <td >Equipo</td>

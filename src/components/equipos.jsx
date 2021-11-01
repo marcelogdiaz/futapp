@@ -20,6 +20,7 @@ class Equipos extends React.Component {
 
     this.state ={
       equipos:[],
+      ligas:[],
       formAdd: {
         "Nombre del equipo":this.props["Nombre del equipo"],
         "id":this.props["id"],
@@ -112,7 +113,7 @@ class Equipos extends React.Component {
         //mostramos todos los equipos
                       
       }else{
-        const localPlayers = this.state.equipos.filter(p => (p["Nombre del equipo"] == this.state.formAdd["Nombre del equipo"]) ||
+        const localPlayers = this.state.equipos.filter(p => (p["Nombre del equipo"].includes(this.state.formAdd["Nombre del equipo"])) ||
         (p["Liga"] == this.state.formAdd["Liga"]));
         if(localPlayers.length > 0){
           this.setState({equipos : localPlayers});
@@ -132,6 +133,16 @@ class Equipos extends React.Component {
               equipos: json                    
           });
       })         
+
+      //pedimos las ligas para armar los SELECT
+      const apiurligas="https://footbal-api.herokuapp.com/leagues";
+      fetch(apiurligas)
+        .then((res) => res.json())
+        .then((json) => {
+            this.setState({
+                ligas: json                    
+            });
+        })  
     }
 
     render() { 
@@ -149,7 +160,12 @@ class Equipos extends React.Component {
                 <Form.Control type="text" placeholder="Ingrese URL logo" name="Logo del Equipo"    onChange={this.handleChange}/>
               </Col>
               <Col>
-                <Form.Control type="text" placeholder="Ingrese Liga" name="Liga"  onChange={this.handleChange}/>
+                {/* <Form.Control type="text" placeholder="Ingrese Liga" name="Liga"  onChange={this.handleChange}/> */}
+                <select name="Liga" id="Liga" onChange={this.handleChange}>
+                {this.state.ligas.map(lig => 
+                    <option value={lig["Identificador"]}>{lig["Nombre De La Liga"]}</option>
+                    )}         
+                </select>           
               </Col>
               <Button onClick={this.handleAgregar} variant="warning" type="button" className="col-1 ">
                 NUEVO
@@ -165,7 +181,12 @@ class Equipos extends React.Component {
                 <Form.Control type="text" placeholder="Ingrese Nombre" name="Nombre del equipo"  onChange={this.handleChange} />
               </Col>
               <Col>
-                <Form.Control type="text" placeholder="Ingrese Liga" name="Liga"  onChange={this.handleChange}/>
+                {/* <Form.Control type="text" placeholder="Ingrese Liga" name="Liga"  onChange={this.handleChange}/> */}
+                <select name="Liga" id="Liga" onChange={this.handleChange}>
+                {this.state.ligas.map(lig => 
+                    <option value={lig["Identificador"]}>{lig["Nombre De La Liga"]}</option>
+                    )}         
+                </select>                 
               </Col>
               <Button onClick={this.handleBuscar} variant="success" type="button" className="col-1 ">
                 BUSCAR
@@ -176,7 +197,7 @@ class Equipos extends React.Component {
             <table class="table table-striped custab">
             <thead >    
             <tr>              
-              <td >ID</td>
+              {/* <td >ID</td> */}
               <td >Nombre</td>
               <td >Logo</td>
               <td >Liga</td>

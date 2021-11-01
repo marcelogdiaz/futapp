@@ -48,6 +48,12 @@ class Ligas extends React.Component {
         
         //console.log(localcounters);
         this.setState({ligas:localcounters});    
+
+        //inicializar los controles del form
+        // this.setState({formAdd:{
+        //   "Nombre De La Liga":"",
+        //   "Identificador":"",
+        //   "Logo de la Liga":""}});
       }
     
       /**
@@ -130,7 +136,6 @@ class Ligas extends React.Component {
        */
       componentDidMount(){
         const apiurl="https://footbal-api.herokuapp.com/leagues";
-
           fetch(apiurl)
             .then((res) => res.json())
             .then((json) => {
@@ -176,9 +181,9 @@ class Ligas extends React.Component {
             <table class="table table-striped custab">
             <thead >    
             <tr>            
-              <td>ID</td>
+              {/* <td>ID</td> */}
               <td >Nombre</td>
-              <td className="col1">Logo</td>
+              <td >Logo</td>
               {/* <div className="col-1">Editar</div> */}
               <td >Acciones</td>
               </tr >

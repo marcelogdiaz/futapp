@@ -38,8 +38,8 @@ class Liga extends React.Component {
     render() { 
         return  (           
             <tr >
-                <td ><input  type="text" name="Identificador"   readOnly   value={this.props.idl}       onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
-                <td ><input  type="text" name="Nombre De La Liga"  value={this.props.nombre}   onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
+                <td ><input  type="hidden" name="Identificador"   readOnly   value={this.props.idl} />
+                <input  type="text" name="Nombre De La Liga"  value={this.props.nombre}   onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
                 <td ><img  src={this.props.logo} width="50" height="50"/></td>
                 {/* <input className="col-3" type="text" name="Logo de la Liga"    value={this.props.logo}     onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/>                 */}
                 <td ><Button onClick={()=>this.props.onUpdate(this)} className=" btn btn-secondary">Editar</Button>{"  "}

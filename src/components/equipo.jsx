@@ -38,8 +38,8 @@ class Equipo extends React.Component {
     render() { 
         return  (           
             <tr >
-                <td><input type="text" name="id"   readOnly   value={this.props.ide}       onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
-                <td><input  type="text" name="Nombre del equipo"  value={this.props.nombre}   onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
+                <td><input type="hidden" name="id"   readOnly   value={this.props.ide} />
+                  <input  type="text" name="Nombre del equipo"  value={this.props.nombre}   onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
                 <td><img  src={this.props.logo} width="50" height="50"/></td>
                 {/* <input className="col-3" type="text" name="Logo del Equipo"    value={this.props.logo}     onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/> */}
                 <td><input  type="text" name="Liga"  value= {this.props.liga}  onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>

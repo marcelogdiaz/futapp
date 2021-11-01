@@ -38,8 +38,8 @@ class Jugador extends React.Component {
     render() { 
         return  (           
             <tr>
-                <td><input type="text" name="id"  readOnly   value={this.props.idj}      onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
-                <td><input  type="text" name="Nombre del Jugador"  value={this.props.nombre}   onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
+                <td><input type="hidden" name="id"  readOnly   value={this.props.idj} />
+                  <input  type="text" name="Nombre del Jugador"  value={this.props.nombre}   onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
                 <td><img  src={this.props.foto} width="50" height="50"/></td>
                 {/* <input className="col-3" type="text" name="Avatar"    value={this.props.foto}     onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/> */}
                 <td><input type="text" name="teamId"  value= {this.props.equipo}  onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
