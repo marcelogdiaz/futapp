@@ -145,8 +145,7 @@ class Ligas extends React.Component {
             <div className="App container">
 
             {/* FORMULARIO PARA AGREGAR UN JUGADOR */}
-            <Form>  
-              <Row>Nueva Liga</Row>
+            <Form className="alert alert-warning">                 
             <Row>              
                 <Form.Control type="hidden" placeholder="" name="Identificador" value={this.state.ligas.length+1}/>              
               <Col>            
@@ -155,21 +154,20 @@ class Ligas extends React.Component {
               <Col>            
                 <Form.Control type="text" placeholder="Ingrese URL logo" name="Logo de la Liga"   onChange={this.handleChange}/>
               </Col>
-              <Button onClick={this.handleAgregar} variant="primary" type="button" className="col-1 btn success">
+              <Button onClick={this.handleAgregar} variant="warning" type="button" className="col-1  ">
                 NUEVO
               </Button>
               </Row>
             </Form>
     
             {/* FORMULARIO PARA BUSCAR UN JUGADOR */}
-            <Form>  
-              <Row>BUSCAR Liga</Row>
+            <Form className="alert alert-success">                              
             <Row>                
                 <Form.Control type="hidden" placeholder="" name="Identificador" value={this.state.ligas.length+1}/>              
               <Col>            
                 <Form.Control type="text" placeholder="Ingrese Nombre" name="Nombre De La Liga"  onChange={this.handleChange} />
               </Col>
-              <Button onClick={this.handleBuscar} variant="primary" type="button" className="col-1 btn success">
+              <Button onClick={this.handleBuscar} variant="success" type="button" className="col-1 ">
                 BUSCAR
               </Button>
               </Row>
