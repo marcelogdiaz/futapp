@@ -37,15 +37,15 @@ class Jugador extends React.Component {
 
     render() { 
         return  (           
-            <div className="row">
-                <input className="col-1" type="text" name="id"     value={this.props.idj}      onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/>
-                <input className="col-3" type="text" name="Nombre del Jugador"  value={this.props.nombre}   onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/>
-                <img className="col-1" src={this.props.foto} width="50" height="50"/>
+            <tr>
+                <td><input type="text" name="id"  readOnly   value={this.props.idj}      onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
+                <td><input  type="text" name="Nombre del Jugador"  value={this.props.nombre}   onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
+                <td><img  src={this.props.foto} width="50" height="50"/></td>
                 {/* <input className="col-3" type="text" name="Avatar"    value={this.props.foto}     onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/> */}
-                <input className="col-3" type="text" name="teamId"  value= {this.props.equipo}  onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/>
-                <Button onClick={()=>this.props.onUpdate(this)} className="col-1 btn btn-secondary">Editar</Button>{"  "}
-                <Button onClick={()=>this.props.onDelete(this.props.idj)} className="col-1 btn btn-danger">Borrar</Button>
-            </div>
+                <td><input type="text" name="teamId"  value= {this.props.equipo}  onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
+                <td><Button onClick={()=>this.props.onUpdate(this)} className=" btn btn-secondary">Editar</Button>{"  "}
+                <Button onClick={()=>this.props.onDelete(this.props.idj)} className=" btn btn-danger">Borrar</Button></td>
+            </tr>
         )
         ;
     }

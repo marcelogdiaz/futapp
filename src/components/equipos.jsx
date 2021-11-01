@@ -136,7 +136,7 @@ class Equipos extends React.Component {
 
     render() { 
         return (
-            <div className="App">
+            <div className="App container">
 
             {/* FORMULARIO PARA AGREGAR UN JUGADOR */}
             <Form>  
@@ -175,16 +175,18 @@ class Equipos extends React.Component {
               </Row>
             </Form>
     
-    
-            <div className="row">                
-              <div className="col-1">ID</div>
-              <div className="col-3">Nombre</div>
-              <div className="col-1">logo</div>
-              <div className="col-3">Liga</div>
+            <table class="table table-striped custab">
+            <thead >    
+            <tr>              
+              <td >ID</td>
+              <td >Nombre</td>
+              <td >Logo</td>
+              <td >Liga</td>
               {/* <div className="col-1">Editar</div> */}
-              <div className="col-1">Acciones</div>
-            </div>
-    
+              <td>Acciones</td>
+            </tr>
+            </thead>
+            <tbody>
             {this.state.equipos.map(equipo => 
                     <Equipo 
                         ide={equipo["id"]} 
@@ -197,6 +199,8 @@ class Equipos extends React.Component {
                     >    
                     </Equipo>
                     )}
+            </tbody>
+            </table>
           </div>            
         );
     }

@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Jugador from './jugador';
+import Equipos from './equipos';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button} from "bootstrap-react";
 import {Navbar,Form, Container, Row, Col,NavDropdown, Nav} from 'react-bootstrap';
@@ -139,7 +140,7 @@ class Jugadores extends React.Component {
 
     render() { 
         return (
-            <div className="App">
+            <div className="App container">
 
             {/* FORMULARIO PARA AGREGAR UN JUGADOR */}
             <Form>  
@@ -154,6 +155,12 @@ class Jugadores extends React.Component {
               </Col>
               <Col>
                 <Form.Control type="text" placeholder="Ingrese Equipo" name="teamId"  onChange={this.handleChange}/>
+
+                {/* <select name="cars" id="cars">
+                {this.state.jugadores.map(jugador => 
+                    <option value="volvo">Volvo</option>
+                    )}
+              </select> */}
               </Col>
               <Button onClick={this.handleAgregar} variant="primary" type="button" className="col-1 btn success">
                 NUEVO
@@ -178,16 +185,18 @@ class Jugadores extends React.Component {
               </Row>
             </Form>
     
-    
-            <div className="row">                
-              <div className="col-1">ID</div>
-              <div className="col-3">Nombre</div>
-              <div className="col-1">Foto</div>
-              <div className="col-3">Equipo</div>
+            <table class="table table-striped custab">
+            <thead>
+            <tr >                
+              <td >ID</td>
+              <td >Nombre</td>
+              <td >Foto</td>
+              <td >Equipo</td>
               {/* <div className="col-1">Editar</div> */}
-              <div className="col-1">Acciones</div>
-            </div>
-    
+              <td >Acciones</td>
+            </tr>
+            </thead>
+            <tbody>
             {this.state.jugadores.map(jugador => 
                     <Jugador 
                         idj={jugador["id"]} 
@@ -200,6 +209,8 @@ class Jugadores extends React.Component {
                     >    
                     </Jugador>
                     )}
+              </tbody>
+            </table>                    
           </div>            
         );
     }
