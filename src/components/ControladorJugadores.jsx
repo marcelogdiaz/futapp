@@ -2,13 +2,20 @@ import React,{Component} from 'react';
 import Jugador from './jugador';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button} from "bootstrap-react";
-import {Navbar,Form, Container, Row, Col,NavDropdown, Nav} from 'react-bootstrap';
+import {Modal,Form, ModalBody, Row, Col,ModalFooter, Nav} from 'react-bootstrap';
+import ModalHeader from "react-bootstrap/esm/ModalHeader";
 
 /**
  * 
  */
 class ControladorJugadores extends React.Component {
 
+  state ={
+    jugadores:[],
+    equipos:[],
+    formAdd: [],
+    modalInsertar:false
+  }
   /**
    * 
    * @param {*} props 
@@ -16,16 +23,14 @@ class ControladorJugadores extends React.Component {
     constructor(props){
       super(props);
   
-      this.state ={
-        jugadores:[],
-        equipos:[],
-        formAdd: {
-          "Nombre del Jugador":this.props["Nombre del Jugador"],
-          "id":this.props["id"],
-          "Avatar":this.props["Avatar"],
-          "teamId":this.props["teamId"]
-        }
-      };
+         //creamos una referencia al INPUT HTML
+    this.inputNuevoNombreRef = React.createRef();
+    this.inputNuevoLogoRef = React.createRef();
+
+    this.state.formAdd["Nombre del Jugador"]="";
+    this.state.formAdd["id"]="";
+    this.state.formAdd["Avatar"]=""; 
+    this.state.formAdd["teamId"]=""; 
   }
     
   /**
@@ -33,9 +38,15 @@ class ControladorJugadores extends React.Component {
    * @param {*} playerId 
    */
       handleDelete = (playerId) =>{
-        // borrar por ID, no por NOMBRE
-        const localPlayers = this.state.jugadores.filter(p => p["id"] !== playerId);
-        this.setState({jugadores : localPlayers});
+        var contador = 0;
+        var arreglo = this.state.jugadores;
+        arreglo.map((registro) => {
+          if (playerId == registro["id"]) {
+            arreglo.splice(contador, 1);
+          }
+          contador++;
+        });
+        this.setState({ jugadores: arreglo});          
       }
     
       /**
@@ -48,7 +59,11 @@ class ControladorJugadores extends React.Component {
         )
         
         //console.log(localcounters);
-        this.setState({jugadores:localcounters});    
+        this.setState({jugadores:localcounters});   
+
+        //inicializar los controles del form
+        this.inputNuevoNombreRef.current.value = "";
+        this.inputNuevoLogoRef.current.value = "";         
       }
     
       /**
@@ -67,44 +82,34 @@ class ControladorJugadores extends React.Component {
         });
       }
     
-      /**
-       * 
-       * @param {*} j 
-       */
-      handleJugadorChange = j =>{
-        //console.log(j);    
-        //copiamos el estado modificado por el evento changes
-        this.setState({
-          formAdd:{...j.state.formAdd}
-        });    
-    
+      mostrarEditarJugador=(datosJugador)=>{
+        this.setState({formAdd:datosJugador});
+        this.setState({modalInsertar:true});    
       }
+    
+      ocultarEditarJugador=()=>{
+        this.setState({modalInsertar:false});    
+      }  
+    
+      // }
     
       /**
        * 
        * @param {*} player 
        */
-      handleUpdate = (player) =>{
-        // //agregamos si coincide con el ID 
-        // var localcounters  = [...this.state.jugadores];    //clonamos el objeto
-        // //buscamos el jusgador con ID=playerId y lo modificamos con los valores de formAdd
-        // const localPlayers = this.state.jugadores.filter(p => (p.idj == playerId));
-    
-        // //actualizamos el listado gral de jugadores
-        // this.setState({jugadores:localcounters});    
-    
+      handleUpdate = (player) =>{     
         var contador =0;
         var lista = this.state.jugadores;
         lista.map((registro)=>{
           if(player["id"]==registro["id"]){
-              lista[contador]["Nombre del Jugador"] = this.formAdd["Nombre del Jugador"];
-              lista[contador]["Avatar"] = this.formAdd["Avatar"];
-              lista[contador]["teamId"] = this.formAdd["teamId"];
+              lista[contador]["Nombre del Jugador"] = player["Nombre del Jugador"];
+              lista[contador]["Avatar"] = player["Avatar"];
+              lista[contador]["teamId"] = player["teamId"];
           }
           contador++;
         }
         );
-        this.setState({jugadores:lista});
+        this.setState({jugadores:lista, modalInsertar: false });
       }
     
       /**
@@ -166,10 +171,10 @@ class ControladorJugadores extends React.Component {
             <Row>
                 <Form.Control type="hidden" placeholder="" name="id" value={this.state.jugadores.length+1}/>
               <Col>            
-                <Form.Control type="text" placeholder="Ingrese Nombre" name="Nombre del Jugador"  onChange={this.handleChange} />
+                <Form.Control ref={this.inputNuevoNombreRef} type="text" placeholder="Ingrese Nombre" name="Nombre del Jugador"  onChange={this.handleChange} />
               </Col>
               <Col>            
-                <Form.Control type="text" placeholder="Ingrese URL Foto" name="Avatar"    onChange={this.handleChange}/>
+                <Form.Control ref={this.inputNuevoLogoRef} type="text" placeholder="Ingrese URL Foto" name="Avatar"    onChange={this.handleChange}/>
               </Col>
               <Col>
                 {/* <Form.Control type="text" placeholder="Ingrese Equipo" name="teamId"  onChange={this.handleChange}/> */}
@@ -226,13 +231,53 @@ class ControladorJugadores extends React.Component {
                         foto = {jugador["Avatar"]}
                         equipo = {jugador["teamId"]}                    
                         onDelete = {this.handleDelete}     
-                        onUpdate = {this.handleUpdate} 
-                        onCambio = {this.handleJugadorChange}                   
+                        onUpdate = {this.mostrarEditarJugador} 
+                        //onCambio = {this.handleJugadorChange}                   
                     >    
                     </Jugador>
                     )}
               </tbody>
-            </table>                    
+            </table>       
+
+        <Modal show={this.state.modalInsertar} fade={false} >
+          <ModalHeader>
+            <div>
+              <h3>Editar Jugador</h3>
+            </div>
+          </ModalHeader>
+          <ModalBody>
+            <Form className="alert alert-warning">
+              <Row>
+                <Form.Control
+                  type="hidden"                  
+                  name="id"
+                  value={this.state.jugadores.length + 1}
+                />
+                <Col>
+                  <Form.Control                    
+                    type="text"                    
+                    name="Nombre del Jugador"
+                    value={this.state.formAdd["Nombre del Jugador"]}
+                    onChange={this.handleChange}
+                  />
+                </Col>
+                <Col>
+                  <Form.Control                    
+                    type="text"                    
+                    name="Avatar"
+                    value={this.state.formAdd["Avatar"]}
+                    onChange={this.handleChange}
+                  />
+                </Col>
+                {/* AGREGAR <SELEct></SELEct> */}
+              </Row>
+            </Form>
+          </ModalBody>
+          <ModalFooter>
+            <button className="btn btn-primary" onClick={() => this.handleUpdate(this.state.formAdd)}>Actualizar</button>
+            <button className="btn btn-danger" onClick={()=>this.ocultarEditarJugador()}>Cancelar</button>
+          </ModalFooter>
+        </Modal>                         
           </div>            
         );
     }

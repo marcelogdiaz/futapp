@@ -20,21 +20,12 @@ class Equipo extends React.Component {
         this.state.formAdd["id"]=this.props.ide;
         this.state.formAdd["Logo del Equipo"]=this.props.logo; 
         this.state.formAdd["Liga"]=this.props.liga; 
-        // this.state ={            
-        //     formAdd: {
-        //       "Nombre del equipo":this.props["Nombre del equipo"],
-        //       "id":this.props["id"],
-        //       "Logo del Equipo":this.props["Logo del Equipo"],
-        //       "Liga":this.props["Liga"]
-        //     }
-        //   };
     }
 
     /**
      * Evento que sirve para almacenar en @formAdd el valor actualizado
      */
     changeText(event) {
-        //this.setState({mievento: event});
         this.setState({
             formAdd:{
               ...this.state.formAdd,

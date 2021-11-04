@@ -34,16 +34,6 @@ class ControladorEquipos extends React.Component {
         this.state.formAdd["id"]="";
         this.state.formAdd["Logo del Equipo"]="";  
         this.state.formAdd["Liga"]="";  
-    // this.state ={
-    //   equipos:[],
-    //   ligas:[],
-    //   formAdd: {
-    //     "Nombre del equipo":this.props["Nombre del equipo"],
-    //     "id":this.props["id"],
-    //     "Logo del Equipo":this.props["Logo del Equipo"],
-    //     "Liga":this.props["Liga"]
-    //   }
-    // };
   }
 
   /**
@@ -51,9 +41,6 @@ class ControladorEquipos extends React.Component {
    * @param {String} playerId 
    */
     handleDelete = (equipoId) =>{
-      // // borrar por ID, no por NOMBRE
-      // const localPlayers = this.state.equipos.filter(p => p["id"] !== playerId);
-      // this.setState({equipos : localPlayers});
 
       var contador = 0;
       var arreglo = this.state.equipos;
@@ -74,12 +61,11 @@ class ControladorEquipos extends React.Component {
       localcounters = localcounters.concat(
         this.state.formAdd
       )
-      
-      //console.log(localcounters);
+
       this.setState({equipos:localcounters});    
-    //inicializar los controles del form
-    this.inputNuevoNombreRef.current.value = "";
-    this.inputNuevoLogoRef.current.value = "";      
+      //inicializar los controles del form
+      this.inputNuevoNombreRef.current.value = "";
+      this.inputNuevoLogoRef.current.value = "";      
     }
     
     /**
@@ -97,18 +83,6 @@ class ControladorEquipos extends React.Component {
       });
     }
     
-    // /**
-    //  * 
-    //  * @param {*} j 
-    //  */
-    // handleJugadorChange = j =>{
-    //   //console.log(j);    
-    //   //copiamos el estado modificado por el evento changes
-    //   this.setState({
-    //     formAdd:{...j.state.formAdd}
-    //   });
-    // }
-    
     mostrarEditarEquipo=(datosEquipo)=>{
       this.setState({formAdd:datosEquipo});
       this.setState({modalInsertar:true});    
@@ -117,30 +91,6 @@ class ControladorEquipos extends React.Component {
     ocultarEditarEquipo=()=>{
       this.setState({modalInsertar:false});    
     }
-
-    // /**
-    //  * 
-    //  * @param {*} player 
-    //  */
-    // handleUpdate = (player) =>{
-    //   // //agregamos si coincide con el ID 
-    //   // var localcounters  = [...this.state.equipos];    //clonamos el objeto
-    //   // //buscamos el jusgador con ID=playerId y lo modificamos con los valores de formAdd
-    //   // const localPlayers = this.state.equipos.filter(p => (p.ide == playerId));   
-  
-    //   var contador =0;
-    //   var lista = this.state.equipos;
-    //   lista.map((registro)=>{
-    //     if(player["id"]==registro.ide){
-    //         lista[contador]["Nombre del equipo"] = this.formAdd["Nombre del equipo"];
-    //         lista[contador]["Logo del Equipo"] = this.formAdd["Logo del Equipo"];
-    //         lista[contador]["Liga"] = this.formAdd["Liga"];
-    //     }
-    //     contador++;
-    //   }
-    //   );
-    //   this.setState({equipos:lista});
-    // }
     
     /**
      * 
