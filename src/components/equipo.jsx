@@ -41,7 +41,8 @@ class Equipo extends React.Component {
                 <input  type="text" name="Nombre del equipo"  value={this.props.nombre}   onChange={e =>  {this.changeText(e);}}/></td>
                 <td><img  src={this.props.logo} width="50" height="50"/></td>
                 {/* <input className="col-3" type="text" name="Logo del Equipo"    value={this.props.logo}     onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/> */}
-                <td><input  type="text" name="Liga"  value= {(typeof this.props.lasLigas !== 'undefined') ? this.props.lasLigas.filter(l => l["Identificador"] === this.props.liga): this.props.liga}  onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
+                {/* <td><input  type="text" name="Liga"  value= {(this.props.lasLigas.filter(l => l["Identificador"] === this.props.liga))["Nombre De La Liga"]}  onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td> */}
+                <td><input type="text" name="Liga"  value= {(typeof this.props.lasLigas !== 'undefined') ? (this.props.lasLigas.filter(l => l["Identificador"] === this.props.liga))["Nombre De La Liga"]: this.props.liga}  onChange={e =>  {this.changeText(e);}}/></td>                
                 <td><Button onClick={()=>this.props.onUpdate(this.state.formAdd)} className=" btn btn-secondary">Editar</Button>{"  "}
                 <Button onClick={()=>this.props.onDelete(this.props.ide)} className=" btn btn-danger">Borrar</Button></td>
             </tr>

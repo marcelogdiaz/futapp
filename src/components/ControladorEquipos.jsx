@@ -31,7 +31,7 @@ class ControladorEquipos extends React.Component {
         this.inputNuevoLogoRef = React.createRef();
     
         this.state.formAdd["Nombre del equipo"]="";
-        this.state.formAdd["id"]="";
+        this.state.formAdd["id"]=(this.state.equipos.length) + 1;
         this.state.formAdd["Logo del Equipo"]="";  
         this.state.formAdd["Liga"]="";  
   }
@@ -57,11 +57,21 @@ class ControladorEquipos extends React.Component {
      * Evento que agrega el Equipo cuya información está almacenada en @formAdd al listado de Equipos
      */
     handleAgregar = () =>{
+      var cantidad = (this.state.equipos.length) + 1
+
+      this.setState({
+        formAdd: {
+          ...this.state.formAdd,
+          ["id"]: cantidad,
+        }
+      });
+
       var localcounters  = [...this.state.equipos];    //clonamos el objeto
       localcounters = localcounters.concat(
         this.state.formAdd
       )
 
+      console.log(this.state.formAdd);
       this.setState({equipos:localcounters});    
       //inicializar los controles del form
       this.inputNuevoNombreRef.current.value = "";

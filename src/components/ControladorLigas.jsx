@@ -39,7 +39,7 @@ class ControladorLigas extends React.Component {
     this.inputNuevoLogoRef = React.createRef();
 
     this.state.formAdd["Nombre De La Liga"]="";
-    this.state.formAdd["Identificador"]="";
+    this.state.formAdd["Identificador"]=(this.state.ligas.length) + 1;
     this.state.formAdd["Logo de la Liga"]="";     
   }
 
@@ -48,6 +48,9 @@ class ControladorLigas extends React.Component {
    * @param {*} ligaId
    */
   handleBorrarLiga = (ligaId) => {
+
+    //alert("BORRO: "+ligaId);
+
     var contador = 0;
     var arreglo = this.state.ligas;
     arreglo.map((registro) => {
@@ -63,6 +66,14 @@ class ControladorLigas extends React.Component {
    * Agregamos una nueva LIGA al listado de LIGAS con los valores que tiene la PROP @formAdd
    */
   handleNuevaLiga = (e) => {
+
+    this.setState({
+      formAdd: {
+        ...this.state.formAdd,
+        ["Identificador"]: (this.state.ligas.length) + 1,
+      }
+    });
+
     var localcounters = [...this.state.ligas]; //clonamos el objeto
     localcounters = localcounters.concat(this.state.formAdd);
     this.setState({ ligas: localcounters });
@@ -158,7 +169,7 @@ class ControladorLigas extends React.Component {
               type="hidden"
               placeholder=""
               name="Identificador"
-              value={this.state.ligas.length + 1}
+              value={(this.state.ligas.length) + 1}
             />
             <Col>
               <Form.Control

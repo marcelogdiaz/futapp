@@ -28,7 +28,7 @@ class ControladorJugadores extends React.Component {
     this.inputNuevoLogoRef = React.createRef();
 
     this.state.formAdd["Nombre del Jugador"]="";
-    this.state.formAdd["id"]="";
+    this.state.formAdd["id"]=this.state.jugadores.length+1;
     this.state.formAdd["Avatar"]=""; 
     this.state.formAdd["teamId"]=""; 
   }
@@ -53,6 +53,13 @@ class ControladorJugadores extends React.Component {
        * 
        */
       handleAgregar = () =>{
+        this.setState({
+          formAdd: {
+            ...this.state.formAdd,
+            ["id"]: (this.state.jugadores.length) + 1,
+          }
+        });
+
         var localcounters  = [...this.state.jugadores];    //clonamos el objeto
         localcounters = localcounters.concat(
           this.state.formAdd

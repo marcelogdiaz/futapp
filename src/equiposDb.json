@@ -1,0 +1,602 @@
+{"localEquipos":[
+    {
+      "Nombre del equipo": "Dazzlesphere",
+      "id": "8154f4cb-246b-4bf9-bc64-51f8661b6781",
+      "Logo del Equipo": "https://robohash.org/autemvoluptatemdolorem.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Vipe",
+      "id": "7cbd9c6d-e002-4d40-8bfa-f07e943f17a4",
+      "Logo del Equipo": "https://robohash.org/nesciuntvelitpossimus.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Geba",
+      "id": "e0f76bd2-af63-43bf-be84-0d633ad541fb",
+      "Logo del Equipo": "https://robohash.org/facereimpeditdolores.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Eamia",
+      "id": "98778af9-cef9-4aa9-8a89-f978704821d4",
+      "Logo del Equipo": "https://robohash.org/doloremaccusamusea.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Shuffletag",
+      "id": "1d0bb8f3-0584-4222-90d7-e7a6c3a5100b",
+      "Logo del Equipo": "https://robohash.org/velitfugitiure.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Zooveo",
+      "id": "72434eb3-b64f-49ff-9070-99780c5122af",
+      "Logo del Equipo": "https://robohash.org/quinonex.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Thoughtsphere",
+      "id": "62a8b5d7-b88e-412d-893a-3843e5271370",
+      "Logo del Equipo": "https://robohash.org/fugitreprehenderitalias.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Kazu",
+      "id": "be4ad44b-2270-47c3-9641-c64f60c0325e",
+      "Logo del Equipo": "https://robohash.org/sitautemofficiis.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Minyx",
+      "id": "b65346b4-eb59-4d51-bd9c-82b4e2c900cc",
+      "Logo del Equipo": "https://robohash.org/quodoloremex.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Feedfire",
+      "id": "3cd9e603-7409-4a32-b4b9-32327755e4e3",
+      "Logo del Equipo": "https://robohash.org/etvoluptasconsequatur.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Jabberstorm",
+      "id": "d17704ae-8e37-4bd1-b0f6-961b144aa0e9",
+      "Logo del Equipo": "https://robohash.org/eligendieafugiat.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Trunyx",
+      "id": "ded5b7cc-ee9a-4bcc-8e03-be4f4cd41b9b",
+      "Logo del Equipo": "https://robohash.org/quibusdamvoluptateslaboriosam.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Dynazzy",
+      "id": "d74b488f-2e72-4d0d-a044-231b0b6c34d8",
+      "Logo del Equipo": "https://robohash.org/quisconsequunturest.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Meetz",
+      "id": "172f7e41-bfff-4fb5-94a4-68e3ae87462f",
+      "Logo del Equipo": "https://robohash.org/sintsuntquas.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Topicblab",
+      "id": "bc744c1d-1058-40f9-86b8-769db32bf680",
+      "Logo del Equipo": "https://robohash.org/inventorequodquis.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Edgetag",
+      "id": "62c6d26f-e8e9-40b1-91db-0728ffbbc9ae",
+      "Logo del Equipo": "https://robohash.org/delectusblanditiisvoluptatem.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Eazzy",
+      "id": "96a003ae-7da3-46cb-b1dc-878f743e862e",
+      "Logo del Equipo": "https://robohash.org/rerummolestiaeplaceat.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Aimbo",
+      "id": "8900c3ff-187a-4bc7-896c-b1bab611c798",
+      "Logo del Equipo": "https://robohash.org/veniamporrorem.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Realblab",
+      "id": "1424d55e-e1d0-4434-90b1-b6862c4360ee",
+      "Logo del Equipo": "https://robohash.org/inaccusantiumillo.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Fanoodle",
+      "id": "f794a2c2-a734-4e7b-a3ea-1a309cff1bd4",
+      "Logo del Equipo": "https://robohash.org/placeatutest.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Quinu",
+      "id": "808996f5-f354-4487-9b36-6bef2baea677",
+      "Logo del Equipo": "https://robohash.org/atqueetfugiat.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Blogtags",
+      "id": "3f729a9f-bb91-48e9-a045-fab8fa6d932a",
+      "Logo del Equipo": "https://robohash.org/fugaquiest.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Viva",
+      "id": "0136b321-0451-4542-91d2-3f258f84a4b2",
+      "Logo del Equipo": "https://robohash.org/easapientefugit.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Mynte",
+      "id": "791664dd-9eb8-4bdd-8dd2-eb852d55cc1b",
+      "Logo del Equipo": "https://robohash.org/iureestquidem.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Zoomdog",
+      "id": "9800a2e1-bbdd-4c57-bdd8-a54d5e7e8ffa",
+      "Logo del Equipo": "https://robohash.org/sitmolestiaemollitia.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Mycat",
+      "id": "8d88058a-4e06-4ed2-aaf2-0679d26bd4a8",
+      "Logo del Equipo": "https://robohash.org/quivelut.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Blogspan",
+      "id": "e7962db6-255a-4ead-aaa4-2b94b5e9f1e9",
+      "Logo del Equipo": "https://robohash.org/eossintea.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Roodel",
+      "id": "37012191-b293-4f48-a43b-ae7c49a09387",
+      "Logo del Equipo": "https://robohash.org/etconsecteturexplicabo.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Zoozzy",
+      "id": "f0f7cae9-71da-4d1b-9b12-b349bc645434",
+      "Logo del Equipo": "https://robohash.org/sitnecessitatibusratione.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Gigaclub",
+      "id": "860d86b5-fd94-4366-aba1-dab11b488426",
+      "Logo del Equipo": "https://robohash.org/velrationelibero.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Zoovu",
+      "id": "950d6a41-22b6-4b66-9f64-046032234fcd",
+      "Logo del Equipo": "https://robohash.org/doloremquedistinctionon.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Einti",
+      "id": "2c827719-db1a-45d0-95b9-bb86dd3d2611",
+      "Logo del Equipo": "https://robohash.org/dignissimosnecessitatibusquisquam.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Quatz",
+      "id": "bd121209-d1b2-4f85-9d66-00225ed0427a",
+      "Logo del Equipo": "https://robohash.org/suntveniamad.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Photofeed",
+      "id": "42d5f7c6-7299-46d3-82df-b98310ee0193",
+      "Logo del Equipo": "https://robohash.org/nobisaperiamad.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Wordify",
+      "id": "b6474e2e-2913-4ff4-860d-7d87d4788d63",
+      "Logo del Equipo": "https://robohash.org/voluptasillumreprehenderit.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Voonte",
+      "id": "d9b894e1-5cf9-4786-891b-5eb93f53d10d",
+      "Logo del Equipo": "https://robohash.org/dolorequiaqui.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Gabtype",
+      "id": "5a1260b6-b609-4e5e-bd46-ece288d2b394",
+      "Logo del Equipo": "https://robohash.org/estsitoccaecati.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Gabspot",
+      "id": "e5881075-2960-48be-a7af-1e554023dcd2",
+      "Logo del Equipo": "https://robohash.org/adipisciporroaliquam.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Linkbuzz",
+      "id": "dd33d972-705a-4ea2-9fd6-e92f44013c97",
+      "Logo del Equipo": "https://robohash.org/vitaenostrumfugiat.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Bluejam",
+      "id": "255f16ac-650d-4cb0-97ae-8fc1b8d25b67",
+      "Logo del Equipo": "https://robohash.org/iustovoluptatemiure.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Yakidoo",
+      "id": "d68c2a24-a79d-489c-ba19-1c5277e9c0b4",
+      "Logo del Equipo": "https://robohash.org/solutacommodineque.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Thoughtblab",
+      "id": "8563749f-0f65-47de-a218-1b80fa30dd9e",
+      "Logo del Equipo": "https://robohash.org/autautad.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Devpulse",
+      "id": "acd6ab92-62c9-4a3d-95a2-acd503e6dd04",
+      "Logo del Equipo": "https://robohash.org/incupiditatequam.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Quatz",
+      "id": "8c6106f1-b5ba-43a2-887d-294919b1d870",
+      "Logo del Equipo": "https://robohash.org/illodebitisexercitationem.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Photolist",
+      "id": "784207c7-08cc-4ed1-823e-5677b8e975dd",
+      "Logo del Equipo": "https://robohash.org/voluptasodioa.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Realblab",
+      "id": "52b83671-97e2-4a87-bc9e-199a54e0931d",
+      "Logo del Equipo": "https://robohash.org/etaspernaturomnis.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Yodo",
+      "id": "df73a911-755b-4ac6-86bf-aaa395245453",
+      "Logo del Equipo": "https://robohash.org/sintvoluptatemearum.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Rhybox",
+      "id": "660de8b1-de8f-4ff0-bbc0-e8a8459ed355",
+      "Logo del Equipo": "https://robohash.org/isteiuremollitia.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Babbleblab",
+      "id": "727a4251-c991-420d-bac2-7a4ac98a5b2a",
+      "Logo del Equipo": "https://robohash.org/evenietassumendadebitis.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Kaymbo",
+      "id": "63cb8116-cf5f-46be-a2e4-4a77c40cf0b2",
+      "Logo del Equipo": "https://robohash.org/esseoccaecatimolestiae.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Fivebridge",
+      "id": "67203ef8-91ab-4a3e-8588-4d79bea4c1a9",
+      "Logo del Equipo": "https://robohash.org/sintrecusandaeet.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Skiptube",
+      "id": "7908bf65-27fc-4c29-baa9-3d4eb9fe4529",
+      "Logo del Equipo": "https://robohash.org/mollitiaquiamolestiae.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Bluezoom",
+      "id": "b6221c16-dad9-47a7-9bef-7a87bf4d3bf6",
+      "Logo del Equipo": "https://robohash.org/consecteturvoluptatesnecessitatibus.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Quinu",
+      "id": "e858c7bb-9bd9-4660-8e75-23b99ee6ca7e",
+      "Logo del Equipo": "https://robohash.org/explicaborerumaspernatur.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Quatz",
+      "id": "1571711b-d789-4772-aeb9-b2b922efbd2d",
+      "Logo del Equipo": "https://robohash.org/voluptatibusquiaadipisci.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Blogtags",
+      "id": "b6176a4d-84d5-419e-8a6c-cca39fdeaf72",
+      "Logo del Equipo": "https://robohash.org/etnamrem.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Skyba",
+      "id": "31bafc27-7524-419f-b8ba-1ee1ddb61979",
+      "Logo del Equipo": "https://robohash.org/cumnatusest.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Tazz",
+      "id": "26b480fa-b09c-4031-a5aa-8c90aec6cee0",
+      "Logo del Equipo": "https://robohash.org/consequatureaamet.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Flashspan",
+      "id": "b19a37c2-76b4-40c7-8664-7b011612961c",
+      "Logo del Equipo": "https://robohash.org/rerumvelitamet.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Quaxo",
+      "id": "9eb9bdcf-b960-4257-920c-1adc61c583f2",
+      "Logo del Equipo": "https://robohash.org/iderroradipisci.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Aivee",
+      "id": "571fe241-b472-439e-80bd-ffe632dbed66",
+      "Logo del Equipo": "https://robohash.org/facilisetsaepe.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Babbleblab",
+      "id": "49f79caa-26cf-4c1c-9840-169f277d104f",
+      "Logo del Equipo": "https://robohash.org/veroullammaxime.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Topicware",
+      "id": "d878af88-1815-46a9-a4ee-bce9f9a9b3fa",
+      "Logo del Equipo": "https://robohash.org/velitethic.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Centidel",
+      "id": "6e26bba1-ac7c-457d-a732-c88f1ee2aab9",
+      "Logo del Equipo": "https://robohash.org/quisdolorumut.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Devbug",
+      "id": "3779e94b-8faa-4e4b-9512-0445bcb29420",
+      "Logo del Equipo": "https://robohash.org/aperiamautemquae.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Topdrive",
+      "id": "e64e851f-43a1-4647-afa0-515d81a1eef8",
+      "Logo del Equipo": "https://robohash.org/maioresdoloribusofficia.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Jetpulse",
+      "id": "14909a12-c400-4163-a3fd-db09d76c5920",
+      "Logo del Equipo": "https://robohash.org/quasperspiciatisaut.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Agivu",
+      "id": "0e951052-084c-4cb5-9f30-544708843956",
+      "Logo del Equipo": "https://robohash.org/nemoipsaplaceat.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Rhynoodle",
+      "id": "98e8767b-6e01-4812-a867-044b171bd340",
+      "Logo del Equipo": "https://robohash.org/omnisaliasporro.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Izio",
+      "id": "318bc1bd-fb59-4e2a-89c1-fc203643c531",
+      "Logo del Equipo": "https://robohash.org/fugiatculpaoptio.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Oyoyo",
+      "id": "923cbfeb-ca88-4cfe-a525-33331b710861",
+      "Logo del Equipo": "https://robohash.org/etquidoloribus.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Zoomzone",
+      "id": "c8605a26-fc13-4295-8a3c-639196c60d1a",
+      "Logo del Equipo": "https://robohash.org/rerumdelenitidolorem.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Riffpedia",
+      "id": "336d2ffb-9c5d-4eef-8551-a0a1d03a34a3",
+      "Logo del Equipo": "https://robohash.org/maximefugaquasi.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Chatterpoint",
+      "id": "aa9c4fa9-bf87-4cca-ba8e-f8dae8b6deff",
+      "Logo del Equipo": "https://robohash.org/velrepellenduset.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Oyonder",
+      "id": "7794173e-c3ab-4606-b48a-35540b7191c8",
+      "Logo del Equipo": "https://robohash.org/suntreprehenderitsapiente.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Ailane",
+      "id": "400b355e-28e3-400c-b233-d33916b05f9d",
+      "Logo del Equipo": "https://robohash.org/quaeodioaspernatur.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Oyoyo",
+      "id": "6e6162b7-4808-4200-afcd-2c2e1ea9fcc9",
+      "Logo del Equipo": "https://robohash.org/pariaturperferendisreiciendis.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Fivespan",
+      "id": "997ceb78-9262-4a76-a7ea-0c6c6430d85a",
+      "Logo del Equipo": "https://robohash.org/teneturatquecorporis.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Roomm",
+      "id": "99d9d938-5d77-4d94-ac7f-15bb68804452",
+      "Logo del Equipo": "https://robohash.org/uttotammolestiae.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Gigabox",
+      "id": "0ad21325-3828-4091-9d1a-b26cff9007d2",
+      "Logo del Equipo": "https://robohash.org/doloremcupiditatetenetur.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Divanoodle",
+      "id": "a1158fb1-a291-4566-8975-1a97e0cf0688",
+      "Logo del Equipo": "https://robohash.org/officiismodivoluptatem.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Aimbu",
+      "id": "be57547d-b8f3-4042-b7d0-abb5bacb882c",
+      "Logo del Equipo": "https://robohash.org/nisiquolaboriosam.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "LiveZ",
+      "id": "7aca7cfa-4a65-4e72-a182-cc1b8731f59b",
+      "Logo del Equipo": "https://robohash.org/consecteturvoluptatumeos.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Wikibox",
+      "id": "9ace2efb-a4db-4a56-bb35-a9193aa993f9",
+      "Logo del Equipo": "https://robohash.org/quasetvoluptatum.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Rhyloo",
+      "id": "15fab8ed-a76f-4731-a844-3a5bab5b97a7",
+      "Logo del Equipo": "https://robohash.org/quaequidemfacilis.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Aibox",
+      "id": "bb162e99-b1ff-4430-bc2b-40e77eb9d115",
+      "Logo del Equipo": "https://robohash.org/necessitatibusautquaerat.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Zoonoodle",
+      "id": "6c97695a-8560-465d-8948-6eb437b1d268",
+      "Logo del Equipo": "https://robohash.org/quibusdamesseillo.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Yakijo",
+      "id": "3750bc0b-6eb9-4829-bded-e3e8078fe8cc",
+      "Logo del Equipo": "https://robohash.org/sapientecumminima.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Twitterbeat",
+      "id": "c07816ca-fe8a-4b5e-8694-b4a127ac76d0",
+      "Logo del Equipo": "https://robohash.org/eiusvoluptatumlaboriosam.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Fadeo",
+      "id": "17f7cabc-fbb5-4b20-b4f1-6297eeb769a7",
+      "Logo del Equipo": "https://robohash.org/necessitatibusmolestiasodio.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Jayo",
+      "id": "919b9e3e-6f31-4484-bc4c-fc776efda575",
+      "Logo del Equipo": "https://robohash.org/voluptasquicorporis.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Avaveo",
+      "id": "b23de40d-a12c-4e3a-b6bb-fdb95d338f0d",
+      "Logo del Equipo": "https://robohash.org/utrepellateos.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Feedspan",
+      "id": "673bf1a3-8e71-4aa6-b792-1f3e7e8a5cb9",
+      "Logo del Equipo": "https://robohash.org/minimatemporibusmolestias.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Miboo",
+      "id": "92051e65-243e-47f9-bcea-34a571465fc2",
+      "Logo del Equipo": "https://robohash.org/estetreiciendis.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Thoughtbridge",
+      "id": "d829fcd8-6da3-40dc-8e09-8d0c670d0551",
+      "Logo del Equipo": "https://robohash.org/exquitenetur.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    },
+    {
+      "Nombre del equipo": "Photospace",
+      "id": "c2c0e97e-8d96-4e56-bc54-186c490b0518",
+      "Logo del Equipo": "https://robohash.org/etquoautem.png?size=250x250&set=set1",
+      "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
+    },
+    {
+      "Nombre del equipo": "Oloo",
+      "id": "24cbc130-2497-4ffd-a678-4254dd728da3",
+      "Logo del Equipo": "https://robohash.org/istenihilsunt.png?size=250x250&set=set1",
+      "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
+    },
+    {
+      "Nombre del equipo": "Rhynoodle",
+      "id": "3b0d2596-130c-431e-91cc-f734c730ab5a",
+      "Logo del Equipo": "https://robohash.org/placeatillofuga.png?size=250x250&set=set1",
+      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
+    },
+    {
+      "Nombre del equipo": "Photobug",
+      "id": "eafc62fa-32aa-4cef-993f-61c400711c1a",
+      "Logo del Equipo": "https://robohash.org/quasiettempore.png?size=250x250&set=set1",
+      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
+    },
+    {
+      "Nombre del equipo": "Minyx",
+      "id": "be26c85f-1f76-4256-81d7-ebf42f2e711a",
+      "Logo del Equipo": "https://robohash.org/dolorinciduntquia.png?size=250x250&set=set1",
+      "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
+    }
+  ]}
