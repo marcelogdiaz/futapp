@@ -151,7 +151,7 @@ class ControladorLigas extends React.Component {
   render() {
     return (
       <div className="App container">
-        {/* FORMULARIO PARA AGREGAR UN JUGADOR */}
+        {/* FORMULARIO PARA AGREGAR UNA LIGA */}
         <Form className="alert alert-warning">
           <Row>
             <Form.Control
@@ -189,7 +189,7 @@ class ControladorLigas extends React.Component {
           </Row>
         </Form>
 
-        {/* FORMULARIO PARA BUSCAR UN JUGADOR */}
+        {/* FORMULARIO PARA BUSCAR UNA LIGA */}
         <Form className="alert alert-success">
           <Row>
             <Form.Control
