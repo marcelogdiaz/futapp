@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import Jugador from './jugador';
-import Equipos from './equipos';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button} from "bootstrap-react";
 import {Navbar,Form, Container, Row, Col,NavDropdown, Nav} from 'react-bootstrap';
@@ -8,7 +7,7 @@ import {Navbar,Form, Container, Row, Col,NavDropdown, Nav} from 'react-bootstrap
 /**
  * 
  */
-class Jugadores extends React.Component {
+class ControladorJugadores extends React.Component {
 
   /**
    * 
@@ -115,7 +114,7 @@ class Jugadores extends React.Component {
         //deberia FILTRATR 
         if((this.state.formAdd["Nombre del Jugador"] =="") & (this.state.formAdd["teamId"] =="")){
           //mostramos todos los jugadores
-                       
+          this.getPLayers();
         }else{
           const localPlayers = this.state.jugadores.filter(p => (p["Nombre del Jugador"].includes(this.state.formAdd["Nombre del Jugador"])) ||
           (p["teamId"] == this.state.formAdd["teamId"]));
@@ -128,25 +127,35 @@ class Jugadores extends React.Component {
       /**
        * 
        */
-      componentDidMount(){
-        const apiurl="https://footbal-api.herokuapp.com/players";
-        fetch(apiurl)
-        .then((res) => res.json())
-        .then((json) => {
-            this.setState({
-                jugadores: json                    
-            });
-        })          
+       componentDidMount(){
+    
+        this.getPLayers();
+        this.getTeams();
 
+      }
+
+      async getTeams(){
         const apiurlequipos="https://footbal-api.herokuapp.com/teams";
-        fetch(apiurlequipos)
+        await fetch(apiurlequipos)
         .then((res) => res.json())
         .then((json) => {
             this.setState({
                 equipos: json                    
             });
         })        
-    }
+      }
+
+      async getPLayers(){
+          const apiurl="https://footbal-api.herokuapp.com/players";
+          await fetch(apiurl)
+          .then((res) => res.json())
+          .then((json) => {
+              this.setState({
+                  jugadores: json                    
+              });
+          })      
+        }
+    
 
     render() { 
         return (
@@ -229,4 +238,4 @@ class Jugadores extends React.Component {
     }
 }
  
-export default Jugadores;
+export default ControladorJugadores;

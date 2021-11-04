@@ -42,7 +42,7 @@ class Equipo extends React.Component {
                   <input  type="text" name="Nombre del equipo"  value={this.props.nombre}   onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
                 <td><img  src={this.props.logo} width="50" height="50"/></td>
                 {/* <input className="col-3" type="text" name="Logo del Equipo"    value={this.props.logo}     onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/> */}
-                <td><input  type="text" name="Liga"  value= {this.props.liga}  onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
+                <td><input  type="text" name="Liga"  value= {(typeof this.props.lasLigas !== 'undefined') ? this.props.lasLigas.filter(l => l["Identificador"] === this.props.liga): this.props.liga}  onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
                 <td><Button onClick={()=>this.props.onUpdate(this)} className=" btn btn-secondary">Editar</Button>{"  "}
                 <Button onClick={()=>this.props.onDelete(this.props.ide)} className=" btn btn-danger">Borrar</Button></td>
             </tr>

@@ -4,46 +4,51 @@ import React,{Component} from "react";
 /**
  * 
  */
-class Liga extends React.Component {
+class Liga extends React.Component {    
 
+    state = {
+        formAdd :[]
+    }
     /**
      * 
      * @param {*} props 
      */
     constructor(props){
         super(props);
-        this.state ={
-        formAdd: {
-            "Nombre De La Liga":this.props["Nombre De La Liga"],
-            "Identificador":this.props["Identificador"],
-            "Logo de la Liga":this.props["Logo de la Liga"]
-          }
-        }
+
+        //esto anda bien para actualizar el INPUT
+        //inicializamos el estado con lo que viene del padre
+        this.state.formAdd["Nombre De La Liga"]=this.props.nombre;
+        this.state.formAdd["Identificador"]=this.props.idl;
+        this.state.formAdd["Logo de la Liga"]=this.props.logo;        
+        //console.log("CONSTRUCTOR: "+this.state.formAdd);
     }
 
     /**
      * 
      * @param {*} event 
      */
-    changeText(event) {
-        //this.setState({mievento: event});
+    actualizarInput(value) {
+        //ok
+        //console.log("Valor liga: "+value);
         this.setState({
             formAdd:{
               ...this.state.formAdd,
-              [event.target.name]: event.target.value
+              //
+              ["Nombre De La Liga"]: value
             }
           });
     }
 
-    render() { 
+    render() {         
         return  (           
-            <tr >
+            <tr key={this.props.idl}>
                 <td ><input  type="hidden" name="Identificador"   readOnly   value={this.props.idl} />
-                <input  type="text" name="Nombre De La Liga"  value={this.props.nombre}   onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td>
-                <td ><img  src={this.props.logo} width="50" height="50"/></td>
-                {/* <input className="col-3" type="text" name="Logo de la Liga"    value={this.props.logo}     onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/>                 */}
-                <td ><Button onClick={()=>this.props.onUpdate(this)} className=" btn btn-secondary">Editar</Button>{"  "}
-                <Button onClick={()=>this.props.onDelete(this.props.idl)} className="btn btn-danger">Borrar</Button></td>
+                <input  type="text" name="Nombre De La Liga"  value={this.props.nombre}  onChange={e =>  {this.actualizarInput(e.target.value);}}/></td>               
+                <td ><img  src={this.props.logo} width="50" height="50"/></td>                
+                <td ><Button onClick={()=>this.props.onEditarLiga(this.state.formAdd)} className=" btn btn-secondary">Editar</Button>{"  "}
+                <Button onClick={()=>this.props.onBorrarLiga(this.props.idl)} className="btn btn-danger">Borrar</Button>                           
+                </td>
             </tr>
         )
         ;

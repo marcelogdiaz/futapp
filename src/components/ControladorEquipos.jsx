@@ -8,7 +8,7 @@ import {Navbar,Form, Container, Row, Col,NavDropdown, Nav} from 'react-bootstrap
  *Clase que representa un ADMINISTRADOR DE EQUIPO
  *Muestra FORM de busqueda, FORM de nuevo y listado
  */
-class Equipos extends React.Component {
+class ControladorEquipos extends React.Component {
 
     /** 
    * Constructor de clase para inicializar  propiedades
@@ -111,7 +111,7 @@ class Equipos extends React.Component {
       //deberia FILTRATR 
       if((this.state.formAdd["Nombre del equipo"] =="") & (this.state.formAdd["Liga"] =="")){
         //mostramos todos los equipos
-                      
+        this.componentDidMount();
       }else{
         const localPlayers = this.state.equipos.filter(p => (p["Nombre del equipo"].includes(this.state.formAdd["Nombre del equipo"])) ||
         (p["Liga"] == this.state.formAdd["Liga"]));
@@ -212,6 +212,7 @@ class Equipos extends React.Component {
                         nombre = {equipo["Nombre del equipo"]}
                         logo = {equipo["Logo del Equipo"]}
                         liga = {equipo["Liga"]}  
+                        lasLigas ={this.state.equipos.ligas}
                         onDelete = {this.handleDelete}     
                         onUpdate = {this.handleUpdate} 
                         onCambio = {this.handleJugadorChange}                   
@@ -225,4 +226,4 @@ class Equipos extends React.Component {
     }
 }
  
-export default Equipos;
+export default ControladorEquipos;

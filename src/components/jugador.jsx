@@ -1,6 +1,5 @@
 import { Button} from "bootstrap-react";
 import React,{Component} from "react";
-import Equipos from "./equipos";
 
 /**
  * 
