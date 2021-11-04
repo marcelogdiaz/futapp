@@ -88,7 +88,7 @@ class ControladorLigas extends React.Component {
     });
   };
 
-  mostrarEditarLiga=(datosLiga)=>{s
+  mostrarEditarLiga=(datosLiga)=>{
     this.setState({formAdd:datosLiga});
     this.setState({modalInsertar:true});    
   }
