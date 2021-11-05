@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Liga from "./liga";
+import Equipo from "./equipo";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "bootstrap-react";
 import {
@@ -27,7 +28,9 @@ class ControladorLigas extends React.Component {
     equipos:[],
     formAdd: [],
     modalInsertar:false,
-    modalVer:false
+    modalVer:false,
+    cargandoLigas:true,
+    cargandoEquipos:true
   };
 
   /**
@@ -165,7 +168,7 @@ class ControladorLigas extends React.Component {
       .then((res) => res.json())
       .then((json) => {
         this.setState({
-          ligas: json,
+          ligas: json,cargandoLigas:false
         });
       });
 
@@ -174,12 +177,15 @@ class ControladorLigas extends React.Component {
         .then((res) => res.json())
         .then((json) => {
           this.setState({
-            equipos: json,
+            equipos: json,cargandoEquipos:false
           });
         });
   }
 
   render() {
+    if((this.state.cargandoEquipos)||(this.state.cargandoLigas)){
+      return "Cargando..."
+    }
     return (
       <div className="App container">
         {/* FORMULARIO PARA AGREGAR UNA LIGA */}
@@ -317,8 +323,10 @@ class ControladorLigas extends React.Component {
             <div>
               <h3>{this.state.formAdd["Nombre De La Liga"]}</h3>
             </div>
-            <Button variant="primary">
-                  Equipos <Badge pill bg="secondary">{this.state.equipos.filter((p) =>p["Liga"]==this.state.formAdd["Identificador"]).length}</Badge>                  
+            <Button variant="primary">Equipos 
+                  <Badge pill bg="secondary">{                  
+                    this.state.equipos.filter((p) =>p["Liga"]==this.state.formAdd["Identificador"]).length
+                  }</Badge>                  
             </Button>
             <Button className="btn btn-danger" onClick={()=>this.ocultarVerLiga()}>Cerrar</Button>                        
           </ModalHeader>
@@ -326,6 +334,23 @@ class ControladorLigas extends React.Component {
             <Card>              
               <Card.Body>
                 <Card.Img variant="top" src={this.state.formAdd["Logo de la Liga"]} data-src="holder.js/100px160s"/>
+                {/* <table>
+            <tbody>
+            {this.state.equipos.map(equipo => 
+                    <Equipo 
+                        ide={equipo["id"]} 
+                        nombre = {equipo["Nombre del equipo"]}
+                        logo = {equipo["Logo del Equipo"]}
+                        liga = {equipo["Liga"]}  
+                        lasLigas ={this.state.equipos.ligas}
+                        onDelete = {this.handleDelete}     
+                        onUpdate = {this.mostrarEditarEquipo} 
+                        //onCambio = {this.handleJugadorChange}                   
+                    >    
+                    </Equipo>
+                  )}
+            </tbody>
+            </table>                         */}
               </Card.Body>
             </Card>                       
           </ModalBody>

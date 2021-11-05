@@ -16,6 +16,8 @@ class Equipo extends React.Component {
     constructor(props){
         super(props);
 
+        this.inputNuevoNombreRef = React.createRef();
+
         this.state.formAdd["Nombre del equipo"]=this.props.nombre;
         this.state.formAdd["id"]=this.props.ide;
         this.state.formAdd["Logo del Equipo"]=this.props.logo; 
@@ -34,15 +36,25 @@ class Equipo extends React.Component {
           });
     }
 
+    cargarValor(eq) {
+
+        this.inputNuevoNombreRef.current.value = (this.props.lasLigas.filter(l => l["Identificador"] === eq.formAdd["Liga"]))["Nombre De La Liga"];      
+        this.inputNuevoNombreRef.current.value = eq.formAdd["Liga"]
+
+        console.log(eq.formAdd["Liga"])
+  }
+
     render() { 
+      console.log(this.props.liga);
+      console.log(this.props.lasLigas);
         return  (           
             <tr key={this.props.ide}>
                 <td><input type="hidden" name="id"   readOnly   value={this.props.ide} />
-                <input  type="text" name="Nombre del equipo"  value={this.props.nombre}   onChange={e =>  {this.changeText(e);}}/></td>
-                <td><img  src={this.props.logo} width="50" height="50"/></td>
-                {/* <input className="col-3" type="text" name="Logo del Equipo"    value={this.props.logo}     onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/> */}
-                {/* <td><input  type="text" name="Liga"  value= {(this.props.lasLigas.filter(l => l["Identificador"] === this.props.liga))["Nombre De La Liga"]}  onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/></td> */}
-                <td><input type="text" name="Liga"  value= {(typeof this.props.lasLigas !== 'undefined') ? (this.props.lasLigas.filter(l => l["Identificador"] === this.props.liga))["Nombre De La Liga"]: this.props.liga}  onChange={e =>  {this.changeText(e);}}/></td>                
+                <input  type="text" name="Nombre del equipo" readOnly  value={this.props.nombre} /></td>
+                <td><img  src={this.props.logo} width="50" height="50"/></td>                
+                {/* <td><input  type="text" name="Liga" readOnly value= {this.props.liga}/></td> */}
+                {/* <td><input type="text" name="Liga" ref={this.inputNuevoNombreRef} readOnly value="a" onLoad={e => {this.cargarValor(this.state.formAdd)}} /></td>                 */}
+                <td><input type="text" name="Liga"  readOnly value= { (this.props.lasLigas.filter(l => l["Identificador"] === this.props.liga))[0]["Nombre De La Liga"]} /></td>                
                 <td><Button onClick={()=>this.props.onUpdate(this.state.formAdd)} className=" btn btn-secondary">Editar</Button>{"  "}
                 <Button onClick={()=>this.props.onDelete(this.props.ide)} className=" btn btn-danger">Borrar</Button></td>
             </tr>

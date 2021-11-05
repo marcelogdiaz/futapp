@@ -40,11 +40,12 @@ class Liga extends React.Component {
           });
     }
 
-    render() {         
+    render() {                
         return  (           
             <tr key={this.props.idl}>
                 <td ><input  type="hidden" name="Identificador"   readOnly   value={this.props.idl} />
-                <input  type="text" name="Nombre De La Liga"  value={this.props.nombre}  onChange={e =>  {this.actualizarInput(e.target.value);}}/></td>               
+                <input  type="text" name="Nombre De La Liga"  readOnly value={this.props.nombre}/></td>               
+                {/* <input  type="text" name="Nombre De La Liga"  value={this.props.nombre}  onChange={e =>  {this.actualizarInput(e.target.value);}}/></td>                */}
                 <td ><img  src={this.props.logo} width="50" height="50"/></td>                
                 <td >
                     <Button onClick={()=>this.props.onVerLiga(this.state.formAdd)} className="btn btn-success">Info</Button>{"  "}                       

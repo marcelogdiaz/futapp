@@ -14,8 +14,11 @@ class ControladorJugadores extends React.Component {
     jugadores:[],
     equipos:[],
     formAdd: [],
-    modalInsertar:false
+    modalInsertar:false,
+    cargandoEquipos:true,
+    cargandoJugadores:true
   }
+
   /**
    * 
    * @param {*} props 
@@ -152,7 +155,7 @@ class ControladorJugadores extends React.Component {
         .then((res) => res.json())
         .then((json) => {
             this.setState({
-                equipos: json                    
+                equipos: json, cargandoEquipos:false    
             });
             
             this.state.formAdd["teamId"]=this.state.equipos[0]["id"]; 
@@ -165,13 +168,16 @@ class ControladorJugadores extends React.Component {
           .then((res) => res.json())
           .then((json) => {
               this.setState({
-                  jugadores: json                    
+                  jugadores: json, cargandoJugadores:false            
               });
           })      
         }
     
 
     render() { 
+      if((this.state.cargandoJugadores)||(this.state.cargandoEquipos)){
+        return "Cargando..."
+      }
         return (
             <div className="App container">
 
@@ -238,7 +244,8 @@ class ControladorJugadores extends React.Component {
                         idj={jugador["id"]} 
                         nombre = {jugador["Nombre del Jugador"]}
                         foto = {jugador["Avatar"]}
-                        equipo = {jugador["teamId"]}                    
+                        equipo = {jugador["teamId"]}      
+                        losEquipos ={this.state.equipos}              
                         onDelete = {this.handleDelete}     
                         onUpdate = {this.mostrarEditarJugador} 
                         //onCambio = {this.handleJugadorChange}                   

@@ -15,7 +15,9 @@ class ControladorEquipos extends React.Component {
     equipos:[],
     ligas:[],
     formAdd: [],
-    modalInsertar:false
+    modalInsertar:false,
+    cargandoEquipos: true,
+    cargandoLigas:true
   };
 
     /** 
@@ -148,7 +150,7 @@ class ControladorEquipos extends React.Component {
       .then((res) => res.json())
       .then((json) => {
           this.setState({
-              equipos: json                    
+              equipos: json , cargandoEquipos:false                  
           });          
       })         
 
@@ -158,13 +160,17 @@ class ControladorEquipos extends React.Component {
         .then((res) => res.json())
         .then((json) => {
             this.setState({
-                ligas: json                    
+                ligas: json, cargandoLigas: false               
             });
             this.state.formAdd["Liga"]=this.state.ligas[0]["Identificador"]
         })  
     }
 
     render() { 
+        if((this.state.cargandoEquipos)||(this.state.cargandoLigas)){
+          return "Cargando...";
+        }
+
         return (
             <div className="App container">
 
@@ -231,7 +237,7 @@ class ControladorEquipos extends React.Component {
                         nombre = {equipo["Nombre del equipo"]}
                         logo = {equipo["Logo del Equipo"]}
                         liga = {equipo["Liga"]}  
-                        lasLigas ={this.state.equipos.ligas}
+                        lasLigas ={this.state.ligas}
                         onDelete = {this.handleDelete}     
                         onUpdate = {this.mostrarEditarEquipo} 
                         //onCambio = {this.handleJugadorChange}                   
