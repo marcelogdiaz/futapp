@@ -3,12 +3,12 @@ import Liga from "./liga";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "bootstrap-react";
 import {
-  Navbar,
+  Card,
   Form,
-  Container,
+  Badge,
   Row,
   Col,
-  NavDropdown,
+  CardGroup,
   Nav,
   Modal,
   ModalBody,
@@ -23,9 +23,11 @@ class ControladorLigas extends React.Component {
 
   state = {
     data: "",
-    ligas: [], //,
+    ligas: [],
+    equipos:[],
     formAdd: [],
-    modalInsertar:false
+    modalInsertar:false,
+    modalVer:false
   };
 
   /**
@@ -99,6 +101,15 @@ class ControladorLigas extends React.Component {
     });
   };
 
+  mostrarVerLiga=(datosLiga)=>{
+    this.setState({formAdd:datosLiga});
+    this.setState({modalVer:true});    
+  }
+
+  ocultarVerLiga=()=>{
+    this.setState({modalVer:false});    
+  }
+
   mostrarEditarLiga=(datosLiga)=>{
     this.setState({formAdd:datosLiga});
     this.setState({modalInsertar:true});    
@@ -157,6 +168,15 @@ class ControladorLigas extends React.Component {
           ligas: json,
         });
       });
+
+      const apiEquipourl = "https://footbal-api.herokuapp.com/teams";
+      await fetch(apiEquipourl)
+        .then((res) => res.json())
+        .then((json) => {
+          this.setState({
+            equipos: json,
+          });
+        });
   }
 
   render() {
@@ -247,6 +267,7 @@ class ControladorLigas extends React.Component {
                 logo={liga["Logo de la Liga"]}
                 onBorrarLiga={this.handleBorrarLiga}
                 onEditarLiga={this.mostrarEditarLiga}              
+                onVerLiga={this.mostrarVerLiga}        
               ></Liga>
             ))}
           </tbody>
@@ -290,6 +311,25 @@ class ControladorLigas extends React.Component {
             <button className="btn btn-danger" onClick={()=>this.ocultarEditarLiga()}>Cancelar</button>
           </ModalFooter>
         </Modal>
+
+        <Modal show={this.state.modalVer} fade={false} >
+          <ModalHeader>
+            <div>
+              <h3>{this.state.formAdd["Nombre De La Liga"]}</h3>
+            </div>
+            <Button variant="primary">
+                  Equipos <Badge pill bg="secondary">{this.state.equipos.filter((p) =>p["Liga"]==this.state.formAdd["Identificador"]).length}</Badge>                  
+            </Button>
+            <Button className="btn btn-danger" onClick={()=>this.ocultarVerLiga()}>Cerrar</Button>                        
+          </ModalHeader>
+          <ModalBody>
+            <Card>              
+              <Card.Body>
+                <Card.Img variant="top" src={this.state.formAdd["Logo de la Liga"]} data-src="holder.js/100px160s"/>
+              </Card.Body>
+            </Card>                       
+          </ModalBody>
+        </Modal>        
       </div>
     );
   }

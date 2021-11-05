@@ -30,7 +30,7 @@ class ControladorJugadores extends React.Component {
     this.state.formAdd["Nombre del Jugador"]="";
     this.state.formAdd["id"]=this.state.jugadores.length+1;
     this.state.formAdd["Avatar"]=""; 
-    this.state.formAdd["teamId"]=""; 
+    this.state.formAdd["teamId"]="";
   }
     
   /**
@@ -154,6 +154,8 @@ class ControladorJugadores extends React.Component {
             this.setState({
                 equipos: json                    
             });
+            
+            this.state.formAdd["teamId"]=this.state.equipos[0]["id"]; 
         })        
       }
 

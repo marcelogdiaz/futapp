@@ -33,7 +33,8 @@ class ControladorEquipos extends React.Component {
         this.state.formAdd["Nombre del equipo"]="";
         this.state.formAdd["id"]=(this.state.equipos.length) + 1;
         this.state.formAdd["Logo del Equipo"]="";  
-        this.state.formAdd["Liga"]="";  
+        //inicializamos con el ID de la primer LIGA
+        this.state.formAdd["Liga"]=""
   }
 
   /**
@@ -148,7 +149,7 @@ class ControladorEquipos extends React.Component {
       .then((json) => {
           this.setState({
               equipos: json                    
-          });
+          });          
       })         
 
       //pedimos las ligas para armar los SELECT
@@ -159,6 +160,7 @@ class ControladorEquipos extends React.Component {
             this.setState({
                 ligas: json                    
             });
+            this.state.formAdd["Liga"]=this.state.ligas[0]["Identificador"]
         })  
     }
 

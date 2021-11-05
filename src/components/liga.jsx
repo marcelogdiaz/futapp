@@ -46,8 +46,10 @@ class Liga extends React.Component {
                 <td ><input  type="hidden" name="Identificador"   readOnly   value={this.props.idl} />
                 <input  type="text" name="Nombre De La Liga"  value={this.props.nombre}  onChange={e =>  {this.actualizarInput(e.target.value);}}/></td>               
                 <td ><img  src={this.props.logo} width="50" height="50"/></td>                
-                <td ><Button onClick={()=>this.props.onEditarLiga(this.state.formAdd)} className=" btn btn-secondary">Editar</Button>{"  "}
-                <Button onClick={()=>this.props.onBorrarLiga(this.props.idl)} className="btn btn-danger">Borrar</Button>                           
+                <td >
+                    <Button onClick={()=>this.props.onVerLiga(this.state.formAdd)} className="btn btn-success">Info</Button>{"  "}                       
+                    <Button onClick={()=>this.props.onEditarLiga(this.state.formAdd)} className=" btn btn-secondary">Editar</Button>{"  "}
+                    <Button onClick={()=>this.props.onBorrarLiga(this.props.idl)} className="btn btn-danger">Borrar</Button>                                           
                 </td>
             </tr>
         )
