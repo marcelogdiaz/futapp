@@ -10,9 +10,13 @@ import axios from 'axios';
  * 
  */
 class ControladorJugadores extends React.Component {
-  apiLeaguesUrl = "https://footbal-api.herokuapp.com/leagues";
-  apiTeamUrl = "http://localhost:3004/localEquipos"//"https://footbal-api.herokuapp.com/teams";  
-  apiPlayerUrl="https://footbal-api.herokuapp.com/players";
+  // apiLeaguesUrl = "https://footbal-api.herokuapp.com/leagues";
+   apiTeamUrl = "https://footbal-api.herokuapp.com/teams";  
+   apiPlayerUrl="https://footbal-api.herokuapp.com/players";
+
+  apiLeaguesUrl = "http://localhost:3001/localLigas"//"https://footbal-api.herokuapp.com/leagues";
+  //apiTeamUrl = "http://localhost:3002/localEquipos"//"https://footbal-api.herokuapp.com/teams";  
+  //apiPlayerUrl="http://localhost:3003/localJugadores"//"https://footbal-api.herokuapp.com/players";  
 
 
   state ={
@@ -46,15 +50,19 @@ class ControladorJugadores extends React.Component {
    * @param {*} playerId 
    */
       handleDelete = (playerId) =>{
-        var contador = 0;
-        var arreglo = this.state.jugadores;
-        arreglo.map((registro) => {
-          if (playerId == registro["id"]) {
-            arreglo.splice(contador, 1);
-          }
-          contador++;
-        });
-        this.setState({ jugadores: arreglo});          
+        // var contador = 0;
+        // var arreglo = this.state.jugadores;
+        // arreglo.map((registro) => {
+        //   if (playerId == registro["id"]) {
+        //     arreglo.splice(contador, 1);
+        //   }
+        //   contador++;
+        // });
+        // this.setState({ jugadores: arreglo});       
+        axios.delete(this.apiPlayerUrl+'/'+playerId)
+        //upate 
+        this.getPLayers();
+        this.forceUpdate();           
       }
     
       /**

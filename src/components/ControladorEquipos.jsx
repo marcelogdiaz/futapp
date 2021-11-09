@@ -11,8 +11,12 @@ import axios from 'axios';
  *Muestra FORM de busqueda, FORM de nuevo y listado
  */
 class ControladorEquipos extends React.Component {
-  apiLeaguesUrl = "https://footbal-api.herokuapp.com/leagues";
-  apiTeamUrl = "http://localhost:3004/localEquipos"//"https://footbal-api.herokuapp.com/teams";  
+  apiLeaguesUrl = "http://localhost:3001/localLigas"//"https://footbal-api.herokuapp.com/leagues";
+  //apiTeamUrl = "http://localhost:3002/localEquipos"//"https://footbal-api.herokuapp.com/teams";  
+
+  apiPlayerUrl="http://localhost:3003/localJugadores"//"https://footbal-api.herokuapp.com/players";
+  //apiPlayerUrl="https://footbal-api.herokuapp.com/players";
+  apiTeamUrl = "https://footbal-api.herokuapp.com/teams";  
 
   state ={
     equipos:[],
@@ -61,6 +65,7 @@ class ControladorEquipos extends React.Component {
       axios.delete(this.apiTeamUrl+'/'+equipoId)
       //upate 
       this.getEquipos();
+      this.forceUpdate();
     }
     
     /**

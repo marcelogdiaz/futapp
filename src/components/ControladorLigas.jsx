@@ -22,8 +22,13 @@ import axios from 'axios';
  */
 class ControladorLigas extends React.Component {
 
-  apiLeaguesUrl = "https://footbal-api.herokuapp.com/leagues";
-  apiTeamUrl = "http://localhost:3004/localEquipos"//"https://footbal-api.herokuapp.com/teams";
+  // apiLeaguesUrl = "https://footbal-api.herokuapp.com/leagues";  
+   apiTeamUrl = "https://footbal-api.herokuapp.com/teams";
+
+  apiLeaguesUrl = "http://localhost:3001/localLigas"//"https://footbal-api.herokuapp.com/leagues";
+  //apiTeamUrl = "http://localhost:3002/localEquipos"//"https://footbal-api.herokuapp.com/teams";  
+  apiPlayerUrl="http://localhost:3003/localJugadores"//"https://footbal-api.herokuapp.com/players";  
+  //apiPlayerUrl="https://footbal-api.herokuapp.com/players";  
 
   state = {
     data: "",
@@ -59,19 +64,20 @@ class ControladorLigas extends React.Component {
 
     // //alert("BORRO: "+ligaId);
 
-    var contador = 0;
-    var arreglo = this.state.ligas;
-    arreglo.map((registro) => {
-      if (ligaId == registro["Identificador"]) {
-        arreglo.splice(contador, 1);
-      }
-      contador++;
-    });
-    this.setState({ ligas: arreglo});  
+    // var contador = 0;
+    // var arreglo = this.state.ligas;
+    // arreglo.map((registro) => {
+    //   if (ligaId == registro["Identificador"]) {
+    //     arreglo.splice(contador, 1);
+    //   }
+    //   contador++;
+    // });
+    // this.setState({ ligas: arreglo});  
 
-    // axios.delete(this.apiLeaguesUrl+'/'+ligaId)
-    // //upate 
-    // this.getLigas();      
+    axios.delete(this.apiLeaguesUrl+'/'+ligaId)
+    //upate 
+    this.getLigas();      
+    this.forceUpdate();       
   };
 
   /**
