@@ -4,11 +4,16 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button} from "bootstrap-react";
 import {Modal,Form, ModalBody, Row, Col,ModalFooter, Nav} from 'react-bootstrap';
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
+import axios from 'axios';
 
 /**
  * 
  */
 class ControladorJugadores extends React.Component {
+  apiLeaguesUrl = "https://footbal-api.herokuapp.com/leagues";
+  apiTeamUrl = "http://localhost:3004/localEquipos"//"https://footbal-api.herokuapp.com/teams";  
+  apiPlayerUrl="https://footbal-api.herokuapp.com/players";
+
 
   state ={
     jugadores:[],
@@ -150,8 +155,8 @@ class ControladorJugadores extends React.Component {
       }
 
       async getTeams(){
-        const apiurlequipos="https://footbal-api.herokuapp.com/teams";
-        await fetch(apiurlequipos)
+        //const apiurlequipos="https://footbal-api.herokuapp.com/teams";
+        await fetch(this.apiTeamUrl)
         .then((res) => res.json())
         .then((json) => {
             this.setState({
@@ -163,8 +168,8 @@ class ControladorJugadores extends React.Component {
       }
 
       async getPLayers(){
-          const apiurl="https://footbal-api.herokuapp.com/players";
-          await fetch(apiurl)
+          //const apiurl="https://footbal-api.herokuapp.com/players";
+          await fetch(this.apiPlayerUrl)
           .then((res) => res.json())
           .then((json) => {
               this.setState({

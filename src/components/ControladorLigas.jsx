@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Liga from "./liga";
-import Equipo from "./equipo";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "bootstrap-react";
 import {
@@ -16,11 +15,15 @@ import {
   ModalFooter,
 } from "react-bootstrap";
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
+import axios from 'axios';
 
 /**
  *
  */
 class ControladorLigas extends React.Component {
+
+  apiLeaguesUrl = "https://footbal-api.herokuapp.com/leagues";
+  apiTeamUrl = "http://localhost:3004/localEquipos"//"https://footbal-api.herokuapp.com/teams";
 
   state = {
     data: "",
@@ -54,7 +57,7 @@ class ControladorLigas extends React.Component {
    */
   handleBorrarLiga = (ligaId) => {
 
-    //alert("BORRO: "+ligaId);
+    // //alert("BORRO: "+ligaId);
 
     var contador = 0;
     var arreglo = this.state.ligas;
@@ -64,7 +67,11 @@ class ControladorLigas extends React.Component {
       }
       contador++;
     });
-    this.setState({ ligas: arreglo});    
+    this.setState({ ligas: arreglo});  
+
+    // axios.delete(this.apiLeaguesUrl+'/'+ligaId)
+    // //upate 
+    // this.getLigas();      
   };
 
   /**
@@ -159,27 +166,33 @@ class ControladorLigas extends React.Component {
     this.setState({ ligas: arreglo, modalInsertar: false });
   };
 
-  /**
-   *
-   */
-  async componentDidMount() {
-    const apiurl = "https://footbal-api.herokuapp.com/leagues";
-    await fetch(apiurl)
+  async getLigas(){
+    await fetch(this.apiLeaguesUrl)
       .then((res) => res.json())
       .then((json) => {
         this.setState({
           ligas: json,cargandoLigas:false
         });
-      });
+      });    
+  }
 
-      const apiEquipourl = "https://footbal-api.herokuapp.com/teams";
-      await fetch(apiEquipourl)
-        .then((res) => res.json())
-        .then((json) => {
-          this.setState({
-            equipos: json,cargandoEquipos:false
-          });
+  async  getPLayers(){
+    //const apiEquipourl = "https://footbal-api.herokuapp.com/teams";
+    await fetch(this.apiTeamUrl)
+      .then((res) => res.json())
+      .then((json) => {
+        this.setState({
+          equipos: json,cargandoEquipos:false
         });
+      });
+  }
+  /**
+   *
+   */
+   componentDidMount() {
+    //const apiLeaguesUrl = "https://footbal-api.herokuapp.com/leagues";
+    this.getLigas();
+    this.getPLayers();
   }
 
   render() {

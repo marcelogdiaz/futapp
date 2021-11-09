@@ -8,6 +8,8 @@ import ControladorLiga from './components/ControladorLigas';
 
 class App extends React.Component {
 
+   apiLeaguesUrl = "https://footbal-api.herokuapp.com/leagues";
+
   render() {
     //De acuerdo a la URL donde estemos, mostramos el contenido correspondiente
     if(window.location.href.includes("Ligas")){

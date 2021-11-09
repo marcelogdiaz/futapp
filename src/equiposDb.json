@@ -1,27 +1,16 @@
-{"localEquipos":[
+{
+  "localEquipos": [
     {
-      "Nombre del equipo": "Dazzlesphere",
+      "Nombre del equipo": "BOCA",
       "id": "8154f4cb-246b-4bf9-bc64-51f8661b6781",
       "Logo del Equipo": "https://robohash.org/autemvoluptatemdolorem.png?size=250x250&set=set1",
       "Liga": "a249ed6a-ad8e-4692-9758-5d19454752f3"
     },
     {
-      "Nombre del equipo": "Vipe",
+      "Nombre del equipo": "RIVER",
       "id": "7cbd9c6d-e002-4d40-8bfa-f07e943f17a4",
       "Logo del Equipo": "https://robohash.org/nesciuntvelitpossimus.png?size=250x250&set=set1",
       "Liga": "4ddb5753-679c-4500-906a-f7b2a5f3f95c"
-    },
-    {
-      "Nombre del equipo": "Geba",
-      "id": "e0f76bd2-af63-43bf-be84-0d633ad541fb",
-      "Logo del Equipo": "https://robohash.org/facereimpeditdolores.png?size=250x250&set=set1",
-      "Liga": "0a886c97-032e-4f37-8caf-24d875b2ac21"
-    },
-    {
-      "Nombre del equipo": "Eamia",
-      "id": "98778af9-cef9-4aa9-8a89-f978704821d4",
-      "Logo del Equipo": "https://robohash.org/doloremaccusamusea.png?size=250x250&set=set1",
-      "Liga": "e1ebc55c-925e-4ce4-bd66-49c41b4b3895"
     },
     {
       "Nombre del equipo": "Shuffletag",
@@ -599,4 +588,5 @@
       "Logo del Equipo": "https://robohash.org/dolorinciduntquia.png?size=250x250&set=set1",
       "Liga": "2b44c97f-c1f8-4731-a627-4bdedcca7ece"
     }
-  ]}
+  ]
+}

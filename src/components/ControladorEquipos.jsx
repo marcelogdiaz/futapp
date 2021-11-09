@@ -4,12 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Button} from "bootstrap-react";
 import {Modal,Form, ModalBody, Row, Col,ModalFooter} from 'react-bootstrap';
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
+import axios from 'axios';
 
 /**
  *Clase que representa un ADMINISTRADOR DE EQUIPO
  *Muestra FORM de busqueda, FORM de nuevo y listado
  */
 class ControladorEquipos extends React.Component {
+  apiLeaguesUrl = "https://footbal-api.herokuapp.com/leagues";
+  apiTeamUrl = "http://localhost:3004/localEquipos"//"https://footbal-api.herokuapp.com/teams";  
 
   state ={
     equipos:[],
@@ -45,15 +48,19 @@ class ControladorEquipos extends React.Component {
    */
     handleDelete = (equipoId) =>{
 
-      var contador = 0;
-      var arreglo = this.state.equipos;
-      arreglo.map((registro) => {
-        if (equipoId == registro["id"]) {
-          arreglo.splice(contador, 1);
-        }
-        contador++;
-      });
-      this.setState({ equipos: arreglo});         
+      // var contador = 0;
+      // var arreglo = this.state.equipos;
+      // arreglo.map((registro) => {
+      //   if (equipoId == registro["id"]) {
+      //     arreglo.splice(contador, 1);
+      //   }
+      //   contador++;
+      // });
+      // this.setState({ equipos: arreglo});        
+      
+      axios.delete(this.apiTeamUrl+'/'+equipoId)
+      //upate 
+      this.getEquipos();
     }
     
     /**
@@ -141,29 +148,36 @@ class ControladorEquipos extends React.Component {
       this.setState({ equipos: arreglo, modalInsertar: false });
     };
 
-    /**
-     * Evento que realiza el GET Api e inicializa el listado de Equipos
-     */
-    componentDidMount(){
-      const apiurl="https://footbal-api.herokuapp.com/teams";
-      fetch(apiurl)
+    async getEquipos(){
+      //const apiurl="https://footbal-api.herokuapp.com/teams";
+      await fetch(this.apiTeamUrl)
       .then((res) => res.json())
       .then((json) => {
           this.setState({
               equipos: json , cargandoEquipos:false                  
           });          
-      })         
+      })      
+    }
 
+    async getLigas(){
       //pedimos las ligas para armar los SELECT
-      const apiurligas="https://footbal-api.herokuapp.com/leagues";
-      fetch(apiurligas)
+      //const apiurligas="https://footbal-api.herokuapp.com/leagues";
+      await fetch(this.apiLeaguesUrl)
         .then((res) => res.json())
         .then((json) => {
             this.setState({
                 ligas: json, cargandoLigas: false               
             });
             this.state.formAdd["Liga"]=this.state.ligas[0]["Identificador"]
-        })  
+        })        
+    }
+
+    /**
+     * Evento que realiza el GET Api e inicializa el listado de Equipos
+     */
+    componentDidMount(){
+      this.getEquipos();
+      this.getLigas();
     }
 
     render() { 
