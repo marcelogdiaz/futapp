@@ -285,7 +285,15 @@ class ControladorJugadores extends React.Component {
                     onChange={this.handleChange}
                   />
                 </Col>
-                {/* AGREGAR <SELEct></SELEct> */}
+                <Col>
+                {/* <Form.Control type="text" placeholder="Ingrese Equipo" name="teamId"  onChange={this.handleChange}/> */}
+
+                <select name="teamId" id="teamId" onChange={this.handleChange}>
+                {this.state.equipos.map(eq => 
+                    <option value={eq["id"]}>{eq["Nombre del equipo"]}</option>
+                    )}
+              </select>
+              </Col>
               </Row>
             </Form>
           </ModalBody>

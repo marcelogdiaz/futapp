@@ -259,7 +259,7 @@ class ControladorEquipos extends React.Component {
                 <Form.Control
                   type="hidden"                  
                   name="id"
-                  value={this.state.ligas.length + 1}
+                  value={this.state.equipos.length + 1}
                 />
                 <Col>
                   <Form.Control                    
@@ -278,7 +278,13 @@ class ControladorEquipos extends React.Component {
                   />
                 </Col>
                 {/* AGREGAR <SELECT></SELECT> */}
-
+                <Col>
+              <select name="Liga" id="Liga" onChange={this.handleChange}>
+                {this.state.ligas.map(lig => 
+                    <option value={lig["Identificador"]}>{lig["Nombre De La Liga"]}</option>
+                    )}         
+                </select>  
+              </Col>
               </Row>
             </Form>
           </ModalBody>
