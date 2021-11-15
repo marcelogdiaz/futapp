@@ -12,11 +12,13 @@ import axios from 'axios';
  */
 class ControladorEquipos extends React.Component {
   apiLeaguesUrl = "http://localhost:3001/localLigas"//"https://footbal-api.herokuapp.com/leagues";
-  //apiTeamUrl = "http://localhost:3002/localEquipos"//"https://footbal-api.herokuapp.com/teams";  
-
+  apiTeamUrl = "http://localhost:3002/localEquipos"//"https://footbal-api.herokuapp.com/teams";  
   apiPlayerUrl="http://localhost:3003/localJugadores"//"https://footbal-api.herokuapp.com/players";
+
+  //json-server --watch equiposDB.json --p 3002
+
   //apiPlayerUrl="https://footbal-api.herokuapp.com/players";
-  apiTeamUrl = "https://footbal-api.herokuapp.com/teams";  
+  //apiTeamUrl = "https://footbal-api.herokuapp.com/teams";  
 
   state ={
     equipos:[],
@@ -62,10 +64,14 @@ class ControladorEquipos extends React.Component {
       // });
       // this.setState({ equipos: arreglo});        
       
-      axios.delete(this.apiTeamUrl+'/'+equipoId)
-      //upate 
-      this.getEquipos();
-      this.forceUpdate();
+      axios.delete(this.apiTeamUrl+'/'+equipoId).then(response=>{
+        //upate 
+        this.getEquipos();
+        this.forceUpdate();
+        //realizar un DELETE ON CASCADE
+      }).catch(error=>{
+      console.log(error.message);
+    })      
     }
     
     /**
@@ -81,16 +87,27 @@ class ControladorEquipos extends React.Component {
         }
       });
 
-      var localcounters  = [...this.state.equipos];    //clonamos el objeto
-      localcounters = localcounters.concat(
-        this.state.formAdd
-      )
+      // var localcounters  = [...this.state.equipos];    //clonamos el objeto
+      // localcounters = localcounters.concat(
+      //   this.state.formAdd
+      // )
 
-      console.log(this.state.formAdd);
-      this.setState({equipos:localcounters});    
-      //inicializar los controles del form
-      this.inputNuevoNombreRef.current.value = "";
-      this.inputNuevoLogoRef.current.value = "";      
+      // console.log(this.state.formAdd);
+      // this.setState({equipos:localcounters});    
+      // //inicializar los controles del form
+      // this.inputNuevoNombreRef.current.value = "";
+      // this.inputNuevoLogoRef.current.value = "";      
+      axios.post(this.apiTeamUrl,this.state.formAdd).then(response=>{
+        //inicializar los controles del form
+        this.inputNuevoNombreRef.current.value = "";
+        this.inputNuevoLogoRef.current.value = "";
+  
+        //upate 
+        this.getEquipos();      
+        this.forceUpdate();   
+      }).catch(error=>{
+        console.log(error.message);
+      })      
     }
     
     /**
@@ -136,21 +153,30 @@ class ControladorEquipos extends React.Component {
 
     editar = (dato) => {
 
-      var contador = 0;
-      var arreglo = this.state.equipos;
-      arreglo.map((registro) => {
-        if (dato["id"] == registro["id"]) {
-          arreglo[contador]["Nombre del equipo"] = dato["Nombre del equipo"];
-          arreglo[contador]["Logo del Equipo"] = dato["Logo del Equipo"];
-          arreglo[contador]["Liga"] = dato["Liga"];
+      // var contador = 0;
+      // var arreglo = this.state.equipos;
+      // arreglo.map((registro) => {
+      //   if (dato["id"] == registro["id"]) {
+      //     arreglo[contador]["Nombre del equipo"] = dato["Nombre del equipo"];
+      //     arreglo[contador]["Logo del Equipo"] = dato["Logo del Equipo"];
+      //     arreglo[contador]["Liga"] = dato["Liga"];
   
-          // console.log(dato["Identificador"]);
-          // console.log(arreglo[contador]["Nombre De La Liga"]);
-          // console.log(arreglo[contador]["Logo de la Liga"]);
-        }
-        contador++;
-      });
-      this.setState({ equipos: arreglo, modalInsertar: false });
+      //     // console.log(dato["Identificador"]);
+      //     // console.log(arreglo[contador]["Nombre De La Liga"]);
+      //     // console.log(arreglo[contador]["Logo de la Liga"]);
+      //   }
+      //   contador++;
+      // });
+      // this.setState({ equipos: arreglo, modalInsertar: false });
+
+      axios.patch(this.apiTeamUrl+"/"+dato["id"],dato).then(response=>{
+        this.setState({ modalInsertar: false });
+        //upate 
+        this.getEquipos();      
+        this.forceUpdate();        
+      }).catch(error=>{
+        console.log(error.message);
+      })      
     };
 
     async getEquipos(){

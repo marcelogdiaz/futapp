@@ -6,9 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import ControladorEquipos from './components/ControladorEquipos';
 import ControladorLiga from './components/ControladorLigas';
 
-class App extends React.Component {
-
-   apiLeaguesUrl = "https://footbal-api.herokuapp.com/leagues";
+class App extends React.Component {   
 
   render() {
     //De acuerdo a la URL donde estemos, mostramos el contenido correspondiente

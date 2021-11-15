@@ -22,13 +22,15 @@ import axios from 'axios';
  */
 class ControladorLigas extends React.Component {
 
-  // apiLeaguesUrl = "https://footbal-api.herokuapp.com/leagues";  
-   apiTeamUrl = "https://footbal-api.herokuapp.com/teams";
+   //apiLeaguesUrl = "https://footbal-api.herokuapp.com/leagues";  
+   //apiTeamUrl = "https://footbal-api.herokuapp.com/teams";
+   //apiPlayerUrl="https://footbal-api.herokuapp.com/players";  
+
+   //json-server --id Identificador --watch ligasDB.json --p 3001
 
   apiLeaguesUrl = "http://localhost:3001/localLigas"//"https://footbal-api.herokuapp.com/leagues";
-  //apiTeamUrl = "http://localhost:3002/localEquipos"//"https://footbal-api.herokuapp.com/teams";  
+  apiTeamUrl = "http://localhost:3002/localEquipos"//"https://footbal-api.herokuapp.com/teams";  
   apiPlayerUrl="http://localhost:3003/localJugadores"//"https://footbal-api.herokuapp.com/players";  
-  //apiPlayerUrl="https://footbal-api.herokuapp.com/players";  
 
   state = {
     data: "",
@@ -62,7 +64,7 @@ class ControladorLigas extends React.Component {
    */
   handleBorrarLiga = (ligaId) => {
 
-    // //alert("BORRO: "+ligaId);
+    //alert("BORRO: "+ligaId);
 
     // var contador = 0;
     // var arreglo = this.state.ligas;
@@ -74,10 +76,16 @@ class ControladorLigas extends React.Component {
     // });
     // this.setState({ ligas: arreglo});  
 
-    axios.delete(this.apiLeaguesUrl+'/'+ligaId)
-    //upate 
-    this.getLigas();      
-    this.forceUpdate();       
+    axios.delete(this.apiLeaguesUrl+'/'+ligaId).then(response=>{
+      //console.log(response);
+      //upate 
+      this.getLigas();      
+      this.forceUpdate();   
+
+      //realizar un DELETE ON CASCADE
+    }).catch(error=>{
+      console.log(error.message);
+    })        
   };
 
   /**
@@ -92,13 +100,21 @@ class ControladorLigas extends React.Component {
       }
     });
 
-    var localcounters = [...this.state.ligas]; //clonamos el objeto
-    localcounters = localcounters.concat(this.state.formAdd);
-    this.setState({ ligas: localcounters });
+    // var localcounters = [...this.state.ligas]; //clonamos el objeto
+    // localcounters = localcounters.concat(this.state.formAdd);
+    // this.setState({ ligas: localcounters });
 
-    //inicializar los controles del form
-    this.inputNuevoNombreRef.current.value = "";
-    this.inputNuevoLogoRef.current.value = "";
+    axios.post(this.apiLeaguesUrl,this.state.formAdd).then(response=>{
+      //inicializar los controles del form
+      this.inputNuevoNombreRef.current.value = "";
+      this.inputNuevoLogoRef.current.value = "";
+
+      //upate 
+      this.getLigas();      
+      this.forceUpdate();   
+    }).catch(error=>{
+      console.log(error.message);
+    })
   };
 
   /**
@@ -156,20 +172,29 @@ class ControladorLigas extends React.Component {
 
   editar = (dato) => {
 
-    var contador = 0;
-    var arreglo = this.state.ligas;
-    arreglo.map((registro) => {
-      if (dato["Identificador"] == registro["Identificador"]) {
-        arreglo[contador]["Nombre De La Liga"] = dato["Nombre De La Liga"];
-        arreglo[contador]["Logo de la Liga"] = dato["Logo de la Liga"];
+    // var contador = 0;
+    // var arreglo = this.state.ligas;
+    // arreglo.map((registro) => {
+    //   if (dato["Identificador"] == registro["Identificador"]) {
+    //     arreglo[contador]["Nombre De La Liga"] = dato["Nombre De La Liga"];
+    //     arreglo[contador]["Logo de la Liga"] = dato["Logo de la Liga"];
 
-        // console.log(dato["Identificador"]);
-        // console.log(arreglo[contador]["Nombre De La Liga"]);
-        // console.log(arreglo[contador]["Logo de la Liga"]);
-      }
-      contador++;
-    });
-    this.setState({ ligas: arreglo, modalInsertar: false });
+    //     // console.log(dato["Identificador"]);
+    //     // console.log(arreglo[contador]["Nombre De La Liga"]);
+    //     // console.log(arreglo[contador]["Logo de la Liga"]);
+    //   }
+    //   contador++;
+    // });
+    // this.setState({ ligas: arreglo, modalInsertar: false });
+
+    axios.patch(this.apiLeaguesUrl+"/"+dato["Identificador"],dato).then(response=>{
+      this.setState({ modalInsertar: false });
+      //upate 
+      this.getLigas();      
+      this.forceUpdate();        
+    }).catch(error=>{
+      console.log(error.message);
+    })
   };
 
   async getLigas(){

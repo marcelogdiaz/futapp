@@ -11,12 +11,14 @@ import axios from 'axios';
  */
 class ControladorJugadores extends React.Component {
   // apiLeaguesUrl = "https://footbal-api.herokuapp.com/leagues";
-   apiTeamUrl = "https://footbal-api.herokuapp.com/teams";  
-   apiPlayerUrl="https://footbal-api.herokuapp.com/players";
+   //apiTeamUrl = "https://footbal-api.herokuapp.com/teams";  
+   //apiPlayerUrl="https://footbal-api.herokuapp.com/players";
+
+   //json-server --watch jugadoresDB.json --p 3003
 
   apiLeaguesUrl = "http://localhost:3001/localLigas"//"https://footbal-api.herokuapp.com/leagues";
-  //apiTeamUrl = "http://localhost:3002/localEquipos"//"https://footbal-api.herokuapp.com/teams";  
-  //apiPlayerUrl="http://localhost:3003/localJugadores"//"https://footbal-api.herokuapp.com/players";  
+  apiTeamUrl = "http://localhost:3002/localEquipos"//"https://footbal-api.herokuapp.com/teams";  
+  apiPlayerUrl="http://localhost:3003/localJugadores"//"https://footbal-api.herokuapp.com/players";  
 
 
   state ={
@@ -59,10 +61,14 @@ class ControladorJugadores extends React.Component {
         //   contador++;
         // });
         // this.setState({ jugadores: arreglo});       
-        axios.delete(this.apiPlayerUrl+'/'+playerId)
-        //upate 
-        this.getPLayers();
-        this.forceUpdate();           
+        axios.delete(this.apiPlayerUrl+'/'+playerId).then(response=>{
+          console.log(response);
+          //upate 
+          this.getPLayers();
+          this.forceUpdate();           
+        }).catch(error=>{
+          console.log(error.message);
+        })
       }
     
       /**
@@ -76,17 +82,28 @@ class ControladorJugadores extends React.Component {
           }
         });
 
-        var localcounters  = [...this.state.jugadores];    //clonamos el objeto
-        localcounters = localcounters.concat(
-          this.state.formAdd
-        )
+        // var localcounters  = [...this.state.jugadores];    //clonamos el objeto
+        // localcounters = localcounters.concat(
+        //   this.state.formAdd
+        // )
         
-        //console.log(localcounters);
-        this.setState({jugadores:localcounters});   
+        // //console.log(localcounters);
+        // this.setState({jugadores:localcounters});   
 
-        //inicializar los controles del form
-        this.inputNuevoNombreRef.current.value = "";
-        this.inputNuevoLogoRef.current.value = "";         
+        // //inicializar los controles del form
+        // this.inputNuevoNombreRef.current.value = "";
+        // this.inputNuevoLogoRef.current.value = "";        
+        axios.post(this.apiPlayerUrl,this.state.formAdd).then(response=>{
+          //inicializar los controles del form
+          this.inputNuevoNombreRef.current.value = "";
+          this.inputNuevoLogoRef.current.value = "";
+    
+          //upate 
+          this.getPLayers();      
+          this.forceUpdate();   
+        }).catch(error=>{
+          console.log(error.message);
+        })         
       }
     
       /**
@@ -120,19 +137,28 @@ class ControladorJugadores extends React.Component {
        * 
        * @param {*} player 
        */
-      handleUpdate = (player) =>{     
-        var contador =0;
-        var lista = this.state.jugadores;
-        lista.map((registro)=>{
-          if(player["id"]==registro["id"]){
-              lista[contador]["Nombre del Jugador"] = player["Nombre del Jugador"];
-              lista[contador]["Avatar"] = player["Avatar"];
-              lista[contador]["teamId"] = player["teamId"];
-          }
-          contador++;
-        }
-        );
-        this.setState({jugadores:lista, modalInsertar: false });
+      handleUpdate = (dato) =>{     
+        // var contador =0;
+        // var lista = this.state.jugadores;
+        // lista.map((registro)=>{
+        //   if(player["id"]==registro["id"]){
+        //       lista[contador]["Nombre del Jugador"] = player["Nombre del Jugador"];
+        //       lista[contador]["Avatar"] = player["Avatar"];
+        //       lista[contador]["teamId"] = player["teamId"];
+        //   }
+        //   contador++;
+        // }
+        // );
+        // this.setState({jugadores:lista, modalInsertar: false });
+
+        axios.patch(this.apiPlayerUrl+"/"+dato["id"],dato).then(response=>{
+          this.setState({ modalInsertar: false });
+          //upate 
+          this.getPLayers();      
+          this.forceUpdate();        
+        }).catch(error=>{
+          console.log(error.message);
+        })        
       }
     
       /**

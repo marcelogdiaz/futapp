@@ -33,15 +33,15 @@ class Jugador extends React.Component {
         });
   }
 
-    render() { 
+    render() {       
         return  (           
             <tr>
                 <td><input type="hidden" name="id"  readOnly   value={this.props.idj} />
                 <input  type="text" readOnly name="Nombre del Jugador"  value={this.props.nombre} /></td>
                 <td><img  src={this.props.foto} width="50" height="50"/></td>
                 {/* <input className="col-3" type="text" name="Avatar"    value={this.props.foto}     onChange={() =>  {this.changeText(window.event);this.props.onCambio(this)}}/> */}
-                {/* <td><input type="text" name="teamId"  value= {this.props.equipo} readOnly/></td> */}
-                <td><input type="text" name="teamId"  readOnly value= { (this.props.losEquipos.filter(l => l["id"] === this.props.equipo))[0]["Nombre del equipo"]} /></td>                
+                <td><input type="text" name="teamId"  value= {this.props.equipo} readOnly/></td>
+                {/* <td><input type="text" name="teamId"  readOnly value= {(this.props.losEquipos.filter(l => l["id"] === this.props.equipo))[0]["Nombre del equipo"]} /></td>                 */}
                 <td><Button onClick={()=>this.props.onUpdate(this.state.formAdd)} className=" btn btn-secondary">Editar</Button>{"  "}
                 <Button onClick={()=>this.props.onDelete(this.props.idj)} className=" btn btn-danger">Borrar</Button></td>
             </tr>
